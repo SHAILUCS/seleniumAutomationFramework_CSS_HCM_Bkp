@@ -1,0 +1,1269 @@
+<html>
+    <head>
+        <style>
+            body {
+                color: #333;
+                font-family: 'Open Sans', sans-serif;
+                font-size: 15px;
+                line-height: 1.6;
+                margin: 0;
+                padding: 0;
+                text-decoration: none;
+                background-color: #EEEEEE !important;
+            }
+
+            .sticky {
+                border: 1px solid lightgray;
+                padding: 25px 0px 0px 0px;
+                background: #eee;
+                color: #f1f1f1;
+                position: fixed;
+                top: 0px;
+                left: 54px;
+                width: 100%;
+                display: none;
+                z-index: 1;
+                box-shadow: 0px 1px 3px 2px grey;
+            }
+
+            .stickyVisible {
+                display: block !important;
+            }
+
+            #sticky-header-data {
+                font-size: 14px;
+                float: left;
+                width: 96%;
+                padding: 2px 0px 0px 10px;
+                line-height: 1.3;
+            }
+
+            #sticky-header-data table td {
+                font-size: 11px;
+                line-height: 1.1;
+            }
+
+            .sticky-header-chbx {
+                margin:0;
+                position: absolute;
+				top: 30px;
+				left: 10px;
+            }
+            
+			#sticky-header-data .title-testStatus{
+				margin: 15px 5px 0px 5px;
+			}
+
+			#sticky-header-data .title-startTime{
+				margin: 15px 5px 0px 5px;
+			}
+			
+			#sticky-header-data .title-Platform{
+				margin: 15px 5px 0px 5px;
+			}
+			
+			#sticky-header-data .title-Browser{
+				margin: 15px 5px 0px 5px;
+			}
+			
+			#sticky-header-data .title-Movie{
+				margin: 15px 5px 0px 5px;
+			}
+
+            <!-- LEFT FIXED OBJECTS CSS --> dont-remove {
+            }
+
+            #reportTitle {
+                color: midnightblue;
+                padding: 0px 0px 0px 10px;
+            }
+
+            #left-container {
+                position: relative;
+                border: 0px solid gray;
+                margin: 3% 0% 0% 5%;
+                padding: 5px;
+            }
+
+            #properties-div {
+                border: 0px solid gray;
+                margin: 5px 20px 0px 20px;
+                padding: 0px 0px 0px 0px;
+                position: relative;
+                float: left;
+            }
+
+            #config {
+                word-break: break-all;
+                font-size: small;
+            }
+
+            #config th {
+                text-align: left;
+                background-color: aliceblue;
+                border: 1px solid lightgrey;
+                margin: 0px;
+                padding: 2px;
+            }
+
+            #config td {
+                text-align: left;
+                background-color: aliceblue;
+                border: 1px solid lightgrey;
+                margin: 0px;
+                padding: 2px;
+            }
+
+            #dashboard-div {
+                border: 0px solid gray;
+                margin: 5px 20px 0px 20px;
+                padding: 0px 0px 0px 0px;
+            }
+
+            #dashboard td {
+                border: 1px solid lightgrey;
+                background-color: aliceblue;
+                word-break: break-all;
+                font-size: small;
+            }
+
+            span[class*='AWS'] {
+                border-radius: 4px;
+                padding: 1px;
+                background-color: blue;
+                color: white;
+            }
+
+            span[class*='STG'] {
+                border-radius: 4px;
+                padding: 1px;
+                background-color: darkred;
+                color: white;
+            }
+
+            .dashboard-header {
+                border-radius: 4px;
+                padding: 1px 0px;
+                text-align: center;
+                font-weight: 600;
+            }
+
+            .cellText-center {
+                border-radius: 4px;
+                padding: 1px 10px;
+                text-align: center;
+            }
+
+            <!-- RIGHT TEST OBJECTS CSS --> dont-remove: {
+            }
+
+            .test {
+                border: 0px solid gray;
+                margin: 5px 0px 0px 0px;
+                padding: 10px 6px 6px 7px;
+                background-color: #FFFFFF;
+            }
+
+            #content {
+                border: 0px solid gray;
+                margin: 0px auto 0px 1%;
+                padding: 0px 0px 0px 0px;
+            }
+
+            .title {
+                border-bottom: 1px solid #DDDDFF;
+                margin: -24px 0px 0px 0px;
+                padding: 0px 0px 0px 2px;
+                cursor: pointer;
+                background-color: #EAEAEA;
+            }
+
+            .title-text {
+                border: 0px solid gray;
+                margin: 0px 0px 5px 0px;
+                padding: 0px 0px 0px 20px;
+                width: 80%;
+            }
+
+            .stepCount {
+                font-size: smaller;
+                font-family: monospace;
+            }
+
+            .title-startTime {
+                float: right;
+                border: 0px solid gray;
+                margin: 0px 5px 0px 5px;
+                padding: 0px;
+            }
+
+            .title-testStatus {
+                float: right;
+                border: 0px solid gray;
+                margin: 0px 5px 0px 5px;
+                padding: 0px;
+                font-weight: bolder;
+                width: 62px;
+            }
+
+            .title-Browser {
+                float: right;
+                border: 0px solid gray;
+                margin: 0px 5px 0px 5px;
+                padding: 0px;
+            }
+
+            .title-Movie {
+                float: right;
+                border: 0px solid gray;
+                margin: 0px 5px 0px 5px;
+                padding: 0px;
+            }
+
+            .title-Platform {
+                float: right;
+                border: 0px solid gray;
+                margin: 0px 5px 0px 5px;
+                padding: 0px;
+            }
+
+            .title-testNGInfo {
+                font-family: monospace;
+                font-size: small;
+            }
+
+            .title-start-time-scenario {
+                background-color: green;
+                color: white;
+                border: 0px solid black;
+                padding: 1px 5px;
+                margin: 0px;
+                border-radius: 5px;
+            }
+
+            .title-end-time-scenario {
+                background-color: indianred;
+                color: white;
+                border: 0px solid black;
+                padding: 1px 5px;
+                margin: 0px;
+                border-radius: 5px;
+            }
+
+            .title-exec-time-scenario {
+                background-color: royalblue;
+                color: white;
+                border: 0px solid black;
+                padding: 1px 5px;
+                margin: 0px;
+                border-radius: 5px;
+            }
+
+            #steps {
+                display: none;
+            }
+
+            .stepLI {
+                border: 0px solid black;
+                margin: 5px 0px 0px 0px;
+                padding: 0px 0px 0px 0px;
+            }
+
+            #steps-tab tr {
+                border-bottom: 1px solid grey;
+            }
+
+            #steps-tab th {
+                font-family: monospace;
+                font-size: medium;
+            }
+
+            #steps-tab td {
+                font-family: monospace;
+                font-size: medium;
+            }
+
+            .node {
+                border-bottom: 1px solid #DDDDFF;
+                margin: -25px 0px 0px;
+                padding: 0px 0px 0px 2px;
+                cursor: pointer;
+                background-color: #F5F5F5;
+            }
+
+            .step {
+                font-family: monospace;
+                font-size: medium;
+                border-bottom: 1px solid lightgray;
+                margin: 5px;
+                padding: 1px;
+            }
+
+            .steps-step-Status {
+                float: right;
+                border: 0px solid gray;
+                margin: 0px 5px 0px 5px;
+                padding: 0px;
+                font-weight: bolder;
+                width: 50px;
+            }
+
+            .steps-step-startTime {
+                float: right;
+                border: 0px solid gray;
+                margin: 0px 5px 0px 5px;
+                padding: 0px;
+                color: dimgrey;
+            }
+
+            #stepLI-highlight {
+                background-color: antiquewhite;
+                box-shadow: 1px 1px 2px 1px grey;
+            }
+
+            .steps-step-text {
+                border: 0px solid gray;
+                margin: 0px 0px 5px 0px;
+                padding: 0px;
+                width: 100%;
+                word-break: break-word;
+            }
+
+            .steps-step-snap {
+                position: relative;
+                border: 0px solid gray;
+                margin: 0px 5px 0px 5px;
+                padding: 0px;
+            }
+
+            .snapSize {
+                max-width: 250px;
+                max-height: 250px;
+            }
+
+            .status {
+                width: 60px
+            }
+
+            .timestamp {
+                width: 100px
+            }
+
+            .step-details {
+            }
+
+            .pass {
+                color: green;
+            }
+
+            .info {
+                color: blue;
+            }
+
+            .fail {
+                color: red;
+            }
+
+            .fatal {
+                color: #B71C1C;
+            }
+
+            .warning {
+                color: orange;
+            }
+
+            .error {
+                color: #ec407a;
+            }
+
+            .skip {
+                color: brown;
+            }
+
+            a {
+                color: blue;
+                text-decoration: none;
+            }
+
+            .exp_col {
+                cursor: pointer;
+            }
+
+            #filter {
+                position: fixed;
+                top: 0;
+                right: -5%;
+                z-index: 1000;
+                margin: 0% 5.5% 0% 0%;
+            }
+
+            .filterText {
+				border: 0px solid #000000;
+				border-radius: 5px;
+				box-shadow: 0px 0px 1px 1px red;
+				margin: 0% 0 0 0%;
+				padding: 0px;
+				height: 22px;
+            }
+
+			select.filterText {
+				color: green;
+				font-size: x-small;
+			}
+			
+			input.filterText {
+				font-family: monospace;
+			}
+			
+            .filterButton{
+			    font-family: monospace;
+                font-size: small;
+                border: 0px solid #000000;
+                border-radius: 5px;
+                box-shadow: 0px 0px 1px 1px red;
+                margin: 0% 0 0 0%;
+                padding: 5px;
+                color: #333;
+                background: rgba(255, 255, 255, 0.5);
+                background-image: -webkit-linear-gradient(top, #E6E6E6, #CCCCCC);
+                background-image: -moz-linear-gradient(top, #E6E6E6, #CCCCCC);
+                background-image: -ms-linear-gradient(top, #E6E6E6, #CCCCCC);
+                background-image: -o-linear-gradient(top, #E6E6E6, #CCCCCC);
+                background-image: linear-gradient(to bottom, #E6E6E6, #CCCCCC);
+                filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=#E6E6E6, endColorstr=#CCCCCC);
+            }
+
+            .filterButton:hover {
+                cursor: pointer;
+                background-image: -webkit-linear-gradient(top, #CCCCCC, #E6E6E6);
+                background-image: -moz-linear-gradient(top, #CCCCCC, #E6E6E6);
+                background-image: -ms-linear-gradient(top, #CCCCCC, #E6E6E6);
+                background-image: -o-linear-gradient(top, #CCCCCC, #E6E6E6);
+                background-image: linear-gradient(to bottom, #CCCCCC, #E6E6E6);
+                filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=#CCCCCC, endColorstr=#E6E6E6);
+            }
+
+            .w3-teal {
+                color: #fff!important;
+                background-color: #009688!important;
+                position: fixed;
+                top: 0;
+            }
+
+            .w3-xlarge {
+                font-size: 24px!important;
+            }
+
+            .w3-teal:hover {
+                color: #000!important;
+                background-color: #AAA!important;
+            }
+
+            .w3-btn, .w3-button {
+                border: none;
+                display: inline-block;
+                padding: 8px 16px;
+                vertical-align: middle;
+                overflow: hidden;
+                text-decoration: none;
+                color: inherit;
+                background-color: inherit;
+                text-align: center;
+                cursor: pointer;
+                white-space: nowrap;
+            }
+
+            .w3-button:hover {
+                background-color: #ccc!important;
+            }
+
+            .w3-border-right {
+                border-right: 1px solid #ccc!important;
+            }
+
+            .w3-sidebar {
+                height: 100%;
+                width: 200px;
+                background-color: #fff;
+                position: fixed!important;
+                z-index: 1;
+                overflow-x: hidden;
+                overflow-y: auto;
+                top: 0;
+                width: 30%;
+            }
+
+            .w3-bar-block .w3-bar-item {
+                width: 100%;
+                display: block;
+                padding: 8px 16px;
+                text-align: left;
+                border: none;
+                white-space: normal;
+                float: none;
+                outline: 0;
+                border-bottom:1px solid;
+                font-size:13px;
+            }
+
+            .w3-large {
+                font-size: 18px!important;
+            }
+
+            #makeItFixed {
+                position: fixed;
+                cursor: pointer;
+            }
+
+            #mySideBar_items {
+                margin: 60px 0px 0px 0px;
+            }
+            
+            .miniBarProgress {
+			    text-align: center;
+			}
+			.miniBar {    
+			    border: 1px solid #8a898a;
+			    position: relative;
+			    width: -webkit-calc(100% - 2rem);
+			    width: -moz-calc(100% - 2rem);
+			    width: 100%;
+			    margin-right: 0.5rem;
+			    color: white;
+			    font-weight: bold;
+			    -webkit-align-items: stretch;
+    			align-items: stretch;
+    			display:flex;
+    			height:15px;
+			}
+			
+			.tooltips{
+			    position: relative;
+			}
+			.mini-middle::after {
+			    content: '';
+			    border-bottom: 8px solid #000000;
+			    width: 0px;
+			    border-left: 6px solid transparent;
+			    border-right: 6px solid transparent;
+			    position: absolute;
+			    left: 50%;
+			    transform: translate(-50%, -50%);
+			    top: -4px;
+			}
+			.mini-middle{
+			position: absolute;
+			    left: 50%;
+			    background: #000;
+			    transform: translate(-50%, -50%);
+			    padding: 2px 7px;
+			    border-radius: 4px;
+			    bottom: -39px;
+			    width: 50px;
+			}
+						
+			.green .mini-middle::after {
+			    border-bottom-color: green;
+			}
+			
+			.green .mini-middle {
+			    background: green;
+			}	
+						
+			.red .mini-middle::after {
+			    border-bottom-color: red;
+			}
+			
+			.red .mini-middle {
+			    background: red;
+			}			
+			
+			.brown .mini-middle::after {
+			    border-bottom-color: brown;
+			}
+			
+			.brown .mini-middle {
+			    background: brown;
+			}		
+			
+			.add-custom-arrow{
+			    cursor: pointer;
+			    border-bottom: 1px solid #DDDDFF;
+			    padding: 5px 10px;
+			    background-color: #ccc;
+			    margin-top:5px;
+			 }
+			
+			.add-custom-arrow::after{
+				content: '';
+			    display: inline-block;
+			    width: 0;
+			    height: 0;
+			   
+				border-left: 6px solid transparent;
+			    border-right: 6px solid transparent;
+			    border-bottom:0px solid #000;
+				border-top: 9px solid #000;
+    
+			    float: right;
+			    margin-right: 15px;
+			    margin-top: 10px;
+			}
+			
+			.add-custom-arrow.collapsed::after{
+				border-left: 10px solid #000;
+			    border-right: 0px solid #000;
+			    border-top: 6px solid transparent;
+			    border-bottom: 6px solid transparent;
+			}
+			.quickviewMethodList{
+			    border-left: 1px solid rgb(119, 119, 119);
+			    padding: 10px 30px;
+			    display: block;
+			}
+			span.btn_0.group {
+			    background: gray;
+			    color: #fff;
+			    padding: 2px 5px;
+			    border-radius: 2px;
+			}
+			
+			.set_time_sheduleds{
+				font-size:12px;
+			}
+        </style>
+    </head>
+    <body>
+        <div id="filter">
+			<input type='button' value='RESET' class="filterButton" onclick='resetFields()'>
+			
+			<select name="titlefilter" class="filterText" onchange="performTitleSearch()">
+				<option value="contains-multiple">contains-multiple(&&)</option>
+				<option value="not-contains">not-contains</option>
+			</select>
+			<input type="text" id="search" value="" onkeyup="performTitleSearch()" class='filterText' placeholder="Search Test Title">
+			
+            <select name="stepsfilter" class="filterText"onchange="performAllStepsSearch()">
+				<option value="contains-multiple">contains-multiple(&&)</option>
+				<option value="not-contains">not-contains</option>
+			</select>
+			<input type="text" id="search-steps" onkeyup="performAllStepsSearch()" value="" class='filterText' placeholder="Search Steps">
+			
+            <input type="button" id="buttExpand" value="EXPAND ALL" class="filterButton" onclick="expandAll()">
+            <input type="button" id="buttCollapse" value="COLLAPSE ALL" class="filterButton" onclick="collapseAll()">
+			
+        </div>
+	
+	<div class="w3-sidebar w3-bar-block w3-border-right" style="display:none" id="mySidebar">
+	  <button onclick="w3_close()" id="makeItFixed" class="w3-bar-item w3-large">Close &#10060;</button>
+	  <!-- PICKER0_START -->
+	  <ol id="mySideBar_items">
+		<!-- quickAccess_items -->
+	  </ol>
+	  <!-- PICKER0_END -->
+	</div>
+	<button id="openNav" class="w3-button w3-teal w3-xlarge" onclick="w3_open()">&#9776;</button>
+	
+		
+	<div id="left-container">
+		<div id="properties-div">
+			<table border="0" id="config">
+				<tbody>	
+					<tr><th colspan=2>FRAMEWORK CONFIGURATIONS</th></tr>
+					<tr><th>Parallel Mode:</th><td> <!-- paralleMode --></td></tr>
+					<tr><th>Thread Count:</th><td> <!-- threadCount --></td></tr>
+					<tr><th>Assertion Enabled:</th><td> <!-- assertionEnabled --></td></tr>
+					<tr><th>Capturing Movie:</th><td> <!-- capturingSnapshots --></td></tr>
+					<tr><th>Implicit Wait:</th><td> <!-- implicitWait --></td></tr>
+					<tr><th>Explicit Wait:</th><td> <!-- explicitWait --></td></tr>
+					<tr><th>Browser Width:</th><td> <!-- width -->px</td></tr>
+					<tr><th>Browser Height:</th><td> <!-- height -->px</td></tr>
+				</tbody>	
+			</table>
+		</div>	
+		
+		<div id="dashboard-div">
+		
+			<a target="_blank" href="../../../Result/Report_Redesign_Template.html">Latest Run Report</a>
+			<a target="_blank" href="../../../"> / WorkSpace</a>
+			
+			<!-- PICKER1_START -->
+			<table border="0" id="dashboard">
+				<tbody>
+					<tr>
+						<td colspan="8" class="dashboard-header" >
+							DASHBOARD
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2"><b>Env</b>: <!-- Environment --></td>
+						<td colspan="3"><b>Suite</b>: <!-- Suite --></td>
+						<td colspan="3"><b>Test</b>: <!-- Test --></td>
+					</tr>
+					<tr/>
+					<tr/>
+					<tr>
+						<td colspan="3" class="dashboard-header">Start</td>
+						<td colspan="3" class="dashboard-header">End</td>
+						<td colspan="2" class="dashboard-header">Time Taken</td>
+					</tr>
+					<tr>
+						<td colspan="3" class="cellText-center"><!-- execStartPlaceholder --></td>
+						<td colspan="3" class="cellText-center"><!-- execEndPlaceholder --></td>
+						<td colspan="2" class="cellText-center"><!-- execTimePlaceholder --></td>
+					</tr>
+					<tr/>
+					<tr/>
+					<tr style="font-weight: 600;">
+						<td/>
+						<td style="color:midnightblue;">#Total</td>
+						<td style="color:green;">#Passed</td>
+						<td style="color:red;">#Failed</td>
+						<td style="color:brown;">#Skipped</td>
+						<td style="color:#ec407a;">#Error</td>
+						<td style="color:orange;">#Warning</td>
+						<td style="color:#B71C1C;">#Fatal</td>
+					</tr>
+					<tr>
+						<td style="font-weight: 600;">Scenario</td>
+						<td style="text-align: center;">
+							<!-- TOTAL_SCENARIOS -->
+						</td>
+						<td style="text-align: center;">
+							<!-- PASSED_SCENARIOS -->
+						</td>
+						<td style="text-align: center;">
+							<!-- FAILED_SCENARIOS -->
+						</td>
+						<td style="text-align: center;">
+							<!-- SKIPPED_SCENARIOS -->
+						</td>
+						<td style="text-align: center;">
+							<!-- ERROR_SCENARIOS -->
+						</td>
+						<td style="text-align: center;">
+							<!-- WARNING_SCENARIOS -->
+						</td>
+						<td style="text-align: center;">
+							<!-- FATAL_SCENARIOS -->
+						</td>
+					</tr>
+					<tr>
+						<td style="font-weight: 600;">Steps</td>
+						<td style="text-align: center;">
+							<!-- TOTAL_Step -->
+						</td>
+						<td style="text-align: center;">
+							<!-- PASSED_Step -->
+						</td>
+						<td style="text-align: center;">
+							<!-- FAILED_Step -->
+						</td>
+						<td style="text-align: center;">
+							<!-- SKIPPED_Step -->
+						</td>
+						<td style="text-align: center;">
+							<!-- ERROR_Step -->
+						</td>
+						<td style="text-align: center;">
+							<!-- WARNING_Step -->
+						</td>
+						<td style="text-align: center;">
+							<!-- FATAL_Step -->
+						</td>
+					</tr>
+					<tr>
+						<td colspan="8" style='background: transparent; border: 0;'>
+							<!-- percentageBar -->
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<!-- PICKER1_END -->
+		</div>
+	</div>
+	<div id="content">
+		<h2 id="reportTitle"><!-- PROJECT --> Functional Automation Test Result Report</h2>
+		<div id='sticky-header' class='sticky'>
+				<span id="sticky-header-data"  onclick='stikyHeaderHideShowSteps()'>
+				</span>
+				<input class='sticky-header-chbx' type='checkbox' onclick='stikyHeaderFindAndCheckUncheckTitle()'>
+			</div>
+		<ol>
+			<!-- INSERT_RESULTS -->
+		</ol>
+	</div>
+
+</body>
+
+    <script>
+        window.onload = function() {
+            var title = getElementsByXPath("//div[@class='title']");
+            var node = getElementsByXPath("//div[@class='node']");
+
+            for (var i = 0; i < title.length; i++) {
+                initData(title[i]);
+                title[i].onclick = function() {
+                    displayData(this);
+                }
+            }
+
+            for (var i = 0; i < node.length; i++) {
+                initData(node[i]);
+                node[i].onclick = function() {
+                    displayData(this);
+                }
+            }
+
+            assignQuickAccessIds();
+            initTitlesOffestArray();
+        }
+
+        function initData(val) {
+            var value = val.nextElementSibling;
+            if (value != null) {
+                value.style.display = "none";
+            }
+        }
+
+        function displayData(val) {
+            var value = val.nextElementSibling;
+            if (value != null) {
+                if (value.style.display == "" || value.style.display == "none")
+                    value.style.display = "block";
+                else if (value.style.display == "block")
+                    value.style.display = "none";
+            }
+            initTitlesOffestArray();
+        }
+
+        function expandAll() {
+            var className = document.getElementsByClassName("title");
+            for (i = 0; i < className.length; i++) {
+                className[i].nextElementSibling.style.display = "block";
+            }
+            className = document.getElementsByClassName("node");
+            for (i = 0; i < className.length; i++) {
+                var temp = className[i].nextElementSibling;
+                if (temp != null) {
+                    temp.style.display = "block";
+                }
+            }
+            initTitlesOffestArray();
+        }
+
+        function collapseAll() {
+            var className = document.getElementsByClassName("title");
+            for (i = 0; i < className.length; i++) {
+                className[i].nextElementSibling.style.display = "none";
+            }
+
+            className = document.getElementsByClassName("node");
+            for (i = 0; i < className.length; i++) {
+                var temp = className[i].nextElementSibling;
+                if (temp != null) {
+                    temp.style.display = "none";
+                }
+            }
+            initTitlesOffestArray();
+        }
+
+		function setHighlightStepObjectId(hideShowObject){
+			hideShowObject.id = 'stepLI-highlight';
+		}
+		
+		function setNotHighlightStepObjectId(hideShowObject){
+			hideShowObject.id = '';
+		}
+		
+		function setVisibleObject(hideShowObject){
+			hideShowObject.style.display = 'list-item';
+		}
+		
+		function setHiddenObject(hideShowObject){
+			hideShowObject.style.display = 'none';
+		}
+		
+		function getTitleHideShowObject(generalObject){
+			return generalObject.parentElement;
+		}
+		
+		function displayAllTitleElements(objectArray){
+			for (i = 0; i < objectArray.length; i++) {
+				setVisibleObject(getTitleHideShowObject(objectArray[i]));
+			}
+		}
+		
+		function displayAllStepsElements(objectArray){
+			for (i = 0; i < objectArray.length; i++) {
+				setVisibleObject(objectArray[i]);
+				setNotHighlightStepObjectId(objectArray[i]);
+			}
+		}
+				
+		function notContainsSearchTitleElements(objectArray,searchFieldVal){
+			for (i = 0; i < objectArray.length; i++) {
+				var str = objectArray[i].textContent;
+				if (str.toLowerCase().includes(searchFieldVal.toLowerCase())) {
+					setHiddenObject(getTitleHideShowObject(objectArray[i]));
+				} else {
+					setVisibleObject(getTitleHideShowObject(objectArray[i]));
+				}
+			}
+		}
+		
+		function notContainsSearchStepsElements(objectArray,searchFieldVal){
+			for (i = 0; i < objectArray.length; i++) {
+				var str = objectArray[i].textContent;
+				if (str.toLowerCase().includes(searchFieldVal.toLowerCase())) {
+					setHiddenObject(objectArray[i]);
+					setNotHighlightStepObjectId(objectArray[i]);
+				} else {
+					setVisibleObject(objectArray[i]);
+					setHighlightStepObjectId(objectArray[i]);
+				}
+			}
+		}
+		
+		function containsMultipleSearchStepsElements(objectArray,searchFieldVal){
+			var searchArr=[searchFieldVal];
+			if(searchFieldVal.includes("&&")){
+				searchArr=searchFieldVal.split("&&");	
+			}
+			
+		
+			for (i = 0; i < objectArray.length; i++) {
+				
+				var visible=true;
+				
+				var str = objectArray[i].textContent;
+				for (j = 0; j < searchArr.length; j++) {
+					
+						if (! str.toLowerCase().includes(searchArr[j].trim().toLowerCase())) {
+							visible=visible && false;
+						}
+				}
+				
+				if(visible){
+					setVisibleObject(objectArray[i]);
+					setHighlightStepObjectId(objectArray[i]);
+				}else{
+					setHiddenObject(objectArray[i]);
+					setNotHighlightStepObjectId(objectArray[i]);
+				}
+			}
+			
+		}
+		
+		function containsMultipleSearchTitleElements(objectArray,searchFieldVal){
+			var searchArr=[searchFieldVal];
+			if(searchFieldVal.includes("&&")){
+				searchArr=searchFieldVal.split("&&");	
+			}
+			
+		
+			for (i = 0; i < objectArray.length; i++) {
+				
+				var visible=true;
+				
+				var str = objectArray[i].textContent;
+				for (j = 0; j < searchArr.length; j++) {
+					if (! str.toLowerCase().includes(searchArr[j].trim().toLowerCase())) {
+						visible=visible && false;
+					}
+				}
+				
+				if(visible){
+					setVisibleObject(getTitleHideShowObject(objectArray[i]));
+				}else{
+					setHiddenObject(getTitleHideShowObject(objectArray[i]));
+				}
+			}
+			
+		}
+		
+		function resetFields(){
+			document.getElementById("search").value="";
+			document.getElementById("search-steps").value="";
+			document.getElementsByName("titlefilter")[0].selectedIndex=0;
+			document.getElementsByName("stepsfilter")[0].selectedIndex=0;
+			performTitleSearch();
+			performAllStepsSearch()
+		}
+		
+        function performTitleSearch() {
+            var searchFieldVal = document.getElementById("search").value;
+            var titleObjects = document.getElementsByClassName("title");
+            var titleFilter = document.getElementsByName("titlefilter")[0].value;
+			
+			if (searchFieldVal == "") {
+				displayAllTitleElements(titleObjects);
+			}else{
+				//Check the search Algorithm
+				if(titleFilter == "not-contains"){
+					notContainsSearchTitleElements(titleObjects,searchFieldVal);
+				}else if(titleFilter == "contains-multiple"){
+					containsMultipleSearchTitleElements(titleObjects,searchFieldVal);
+				}
+			}
+			
+            initTitlesOffestArray();
+        }
+
+		
+		
+        function performAllStepsSearch() {
+            var searchFieldVal = document.getElementById("search-steps").value;
+			var titleObjects = getElementsByXPath("//div[@class='step']/..");
+            var titleFilter = document.getElementsByName("stepsfilter")[0].value;
+			
+            if (searchFieldVal == "") {
+				displayAllStepsElements(titleObjects);
+			}else{
+				//Check the search Algorithm
+				if(titleFilter == "not-contains"){
+					notContainsSearchStepsElements(titleObjects,searchFieldVal);
+				}else if(titleFilter == "contains-multiple"){
+					containsMultipleSearchStepsElements(titleObjects,searchFieldVal);
+				}
+			}
+			
+			hideShowNodesBasedOnSteps();
+			
+            initTitlesOffestArray();
+        }
+		
+		function hideShowNodesBasedOnSteps(){
+			/*
+				if atleast one step is visible under a node
+				we will not hide that node, and if all steps are hidden
+				then we will hide the node
+			*/
+			var nodeObjects = getElementsByXPath("//div[@class='node']");
+			
+			for( ee=0; ee < nodeObjects.length ; ee++){
+				var atleastOneIsVisible = true;
+				var followingSibling = nodeObjects[ee].nextElementSibling;
+				if(followingSibling!=null){
+					var liObjects = followingSibling.getElementsByTagName("li");
+					
+					for( j=0; j < liObjects.length ; j++){
+						var value = liObjects[j];
+						if (value != null) {
+							if (value.style.display != "none"){
+								atleastOneIsVisible = false;
+								break;
+							}
+						}
+					}
+					
+					if(atleastOneIsVisible){
+						nodeObjects[ee].parentElement.style.display = "none";
+					}else{
+						nodeObjects[ee].parentElement.style.display = "list-item";
+					}
+				}else{
+					// Code for Node that have Steps : 0 
+					var searchFieldVal = document.getElementById("search-steps").value;
+					var titleFilter = document.getElementsByName("stepsfilter")[0].value;
+					var objArr = [nodeObjects[ee].parentElement];
+					//Check the search Algorithm
+					if(searchFieldVal.trim() == ""){
+						setNotHighlightStepObjectId(objArr[0]);
+					}else{
+						if(titleFilter == "not-contains"){
+							notContainsSearchStepsElements(objArr,searchFieldVal);
+						}else if(titleFilter == "contains-multiple"){
+							containsMultipleSearchStepsElements(objArr,searchFieldVal);
+						}
+					}
+				}
+			}
+			
+			
+            initTitlesOffestArray();
+			
+		}
+
+        function performStepsSearch(obj) {
+            var parentObj = obj;
+            do {
+                parentObj = parentObj.parentElement;
+                console.log(parentObj.nodeName);
+            } while (parentObj.nodeName != "OL");var searchFieldVal = obj.value;
+            var allObjs = parentObj.children;
+
+            for (i = 0; i < allObjs.length; i++) {
+                if (allObjs[i].tagName == "LI") {
+                    var str = allObjs[i].textContent;
+                    if (str.toLowerCase().includes(searchFieldVal.toLowerCase())) {
+                        allObjs[i].style.display = 'list-item';
+                    } else {
+                        allObjs[i].style.display = 'none';
+                    }
+
+                    if (str == "") {
+                        allObjs[i].style.display = 'list-item';
+                    }
+                }
+            }
+
+        }
+
+        function checkUncheck(obj) {
+            var parentObj = obj;
+            do {
+                parentObj = parentObj.parentElement;
+            } while (parentObj.nodeName != 'LI');if (obj.checked) {
+                parentObj.style.background = 'lightgoldenrodyellow';
+                //parentObj.style.boxShadow='3px 3px 10px 0px lightgrey';
+            } else {
+                parentObj.style = '';
+            }
+        }
+
+        function checkUncheckTitle(obj) {
+            /*var parentObj=obj;
+			do{		
+				parentObj=parentObj.parentElement;
+			}while(parentObj.nodeName!='LI');*/
+
+            if (obj.checked) {
+                obj.nextElementSibling.style.background = 'lightgoldenrodyellow';
+                obj.nextElementSibling.style.borderBottomColor = 'red';
+                //obj.nextElementSibling.style.boxShadow='3px 3px 10px 0px lightgrey';
+            } else {
+                obj.nextElementSibling.style = '';
+            }
+
+        }
+
+        function checkUncheckNode(obj) {
+            /*var parentObj=obj;
+			do{		
+				parentObj=parentObj.parentElement;
+			}while(parentObj.nodeName!='DIV');*/
+
+            if (obj.checked) {
+                obj.nextElementSibling.style.background = 'lightgoldenrodyellow';
+                obj.nextElementSibling.style.borderBottomColor = 'red';
+                //obj.nextElementSibling.style.boxShadow='3px 3px 10px 0px lightgrey';
+            } else {
+                obj.nextElementSibling.style = '';
+            }
+        }
+
+        function getElementsByXPath(xpath, parent) {
+            let results = [];
+            let query = document.evaluate(xpath, parent || document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+            for (let i = 0, length = query.snapshotLength; i < length; ++i) {
+                results.push(query.snapshotItem(i));
+            }
+            return results;
+        }
+
+        function assignQuickAccessIds() {
+            var titleTextElements = getElementsByXPath("//div[@class='title']//div[@class='title-text']");
+            for (i = 0; i < titleTextElements.length; i++) {
+                titleTextElements[i].setAttribute("id", "quickAccess" + i);
+            }
+        }
+
+        function w3_open() {
+            document.getElementById("left-container").style.marginLeft = "30%";
+            document.getElementById("sticky-header").style.marginLeft = "30%";
+            document.getElementById("sticky-header-data").style.width = "71%";
+            document.getElementById("sticky-header").style.left = "0px";
+            document.getElementById("content").style.marginLeft = "30%";
+            document.getElementById("mySidebar").style.width = "30%";
+            document.getElementById("makeItFixed").style.width = "30%";
+            document.getElementById("mySidebar").style.display = "block"
+            initTitlesOffestArray();
+        }
+
+        function w3_close() {
+            document.getElementById("left-container").style = "";
+            document.getElementById("content").style = "";
+            document.getElementById("mySidebar").style.display = "none";
+            document.getElementById("sticky-header").style = "";
+            document.getElementById("sticky-header-data").style = "";
+            initTitlesOffestArray();
+        }
+
+        window.onscroll = function() {
+            stickyHeaderFunc();
+        }
+
+        var stickyHeader = getElementsByXPath("//div[@id='sticky-header']");
+
+        var testTitlesOffsetArr;
+
+        function initTitlesOffestArray() {
+            var titleLiElements = getElementsByXPath("//li[@class='test'][not(@style='display: none;')]");
+            testTitlesOffsetArr = new Array(titleLiElements.length);
+            for (i = 0; i < titleLiElements.length; i++) {
+                testTitlesOffsetArr[i] = titleLiElements[i].offsetTop;
+            }
+        }
+
+        function stickyHeaderFunc() {
+            var titleDivElements = getElementsByXPath("//li[@class='test'][not(@style='display: none;')]//div[@class='title']");
+            var titleDivCheckBoxElements = getElementsByXPath("//li[@class='test'][not(@style='display: none;')]/input");
+            var stickyHeaderCheckbox = getElementsByXPath("//div[@id='sticky-header']/input");
+
+            for (i = 0; i < titleDivElements.length; i++) {
+                if (window.pageYOffset < 200) {
+                    stickyHeader[0].classList.remove("stickyVisible");
+                } else if ((window.pageYOffset + 130) > testTitlesOffsetArr[i]) {
+                    if (stickyHeader[0].firstElementChild.firstElementChild != null) {
+                        stickyHeader[0].firstElementChild.firstElementChild.remove();
+                    }
+                    var clnTitle = titleDivElements[i].cloneNode(true);
+                    clnTitle.setAttribute("class", "NONE");
+                    stickyHeader[0].firstElementChild.appendChild(clnTitle);
+                    stickyHeader[0].classList.add("stickyVisible");
+                    stickyHeader[0].firstElementChild.firstElementChild.style.margin = "0px 0px 0px 0px";
+                    stickyHeaderCheckbox[0].checked = titleDivCheckBoxElements[i].checked;
+                }
+            }
+        }
+
+        function stikyHeaderHideShowSteps() {
+            var stickyHeaderTitleId = getElementsByXPath("//span[@id='sticky-header-data']//div[@class='title-text']")[0].id;
+            var matchingTitleObject = getElementsByXPath("//div[@id='" + stickyHeaderTitleId + "']//ancestor::div[@class='title']")[0];
+
+            var value = matchingTitleObject.nextElementSibling;
+            if (value != null) {
+                if (value.style.display == "" || value.style.display == "none")
+                    value.style.display = "block";
+                else if (value.style.display == "block")
+                    value.style.display = "none";
+            }
+            initTitlesOffestArray();
+        }
+
+        function stikyHeaderFindAndCheckUncheckTitle() {
+            var stickyHeaderTitleId = getElementsByXPath("//span[@id='sticky-header-data']//div[@class='title-text']")[0].id;
+            var matchingTitleObjectCheckbox = getElementsByXPath("//div[@id='" + stickyHeaderTitleId + "']//ancestor::li[@class='test']/input")[0];
+            matchingTitleObjectCheckbox.click();
+        }
+        
+        function hideShowQuicViewNextList(obj){
+        	var nextEle = obj.nextElementSibling;
+        	
+        	if(nextEle != null){
+        		if(nextEle.style.display == "none"){
+        			nextEle.style.display = "block";
+        			obj.className = "add-custom-arrow";
+        		}else{
+        			nextEle.style.display = "block";
+		        	nextEle.style.display = "none";
+		        	obj.className = "add-custom-arrow collapsed";
+	        	}
+        	}
+        }
+        
+    </script>
+    
+    <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+</html>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite" parallel="methods">
+  <test name="Test">
+    <classes>
+      <class name="common.jsonUtil.TestngJsonRunner">
+      	<methods>
+      		<include name ="thread1" />
+      		<include name ="thread2" />
+      		<include name ="thread3" />
+      		<include name ="thread4" />
+      	</methods>
+      </class>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->

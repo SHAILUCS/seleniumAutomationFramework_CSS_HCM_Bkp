@@ -1,0 +1,171 @@
+<html>
+
+<head>
+
+<style>
+	.hide-it{
+		display:none;
+		position:relative;
+	}
+	
+	.show-it{
+		display:block;
+		position:relative;
+		text-align:center;
+	}
+	
+	.stopAutoPlay{
+		border: 1px solid red;
+		margin: 0px 0px 0px 0px;
+		padding: 0px 0px 0px 0px;
+		position: absolute;
+		z-index:1000;
+		cursor:pointer;
+		color: Red;
+		background-color: white;
+	}
+	.startAutoPlay{
+		border: 1px solid red;
+		margin: 0px 0px 0px 100px;
+		padding: 0px 0px 0px 0px;
+		position: absolute;
+		z-index:1000;
+		cursor:pointer;
+		color: Green;
+		background-color: white;
+	}
+	
+	.heading{
+		border: 0px solid black;
+		margin: 0px 0px 0px 0px;
+		padding: 0px 0px 0px 0px;
+		position: relative;
+	}
+	
+	img{
+		border: 1px solid red;
+		margin: 0px 0px 0px 0px;
+		padding: 0px 0px 0px 0px;
+		position: relative;
+		object-fit: scale-down;
+	}
+
+</style>
+
+
+<script>
+
+	var snaps= <!-- snapsArray -->;
+	var timer1 = 0 ;
+	var Interval=1000;
+	
+	function createImageObjectsOnPage(){
+		var allSnaps=document.getElementById("allSnaps");
+		for (var i=0;i<snaps.length;i++) {
+				var span=document.createElement("SPAN");
+				var h3=document.createElement("H3");
+				
+				var a=document.createElement("a");
+				a.setAttribute("href",snaps[i]);
+				a.setAttribute("target","_blank");
+				
+				var img=document.createElement("img");
+				img.setAttribute("src",snaps[i]);
+				img.setAttribute("height",(window.innerHeight-window.innerHeight/10)+"px");
+				img.setAttribute("width",(window.innerWidth-window.innerWidth/10)+"px");
+				
+				var dateTime=new Date(parseInt(snaps[i].substring(0,snaps[i].indexOf("_")))).toLocaleString();
+				var nameOfSnap=snaps[i].substring(snaps[i].indexOf("_")+1,snaps[i].length);
+				var readableText=nameOfSnap+" | "+dateTime;
+				var txt = document.createTextNode(readableText);
+				
+				if(nameOfSnap=="failure.jpg"){
+					span.setAttribute("style","background-color: coral;");	
+				}
+				
+				allSnaps.appendChild(span);
+				span.appendChild(h3);
+				h3.appendChild(txt)
+				h3.setAttribute("class", "heading");
+				
+				span.appendChild(a);
+				a.appendChild(img);
+				
+				span.setAttribute("id", i);
+				if(i==0){
+					span.setAttribute("class", "show-it");
+				}else{
+					span.setAttribute("class", "hide-it");
+				}
+				
+		}
+		timer1 = setInterval(moveImages, Interval);
+	}
+
+function stopAutoPlayFunc(){
+	clearInterval(timer1);
+}
+
+function resumeAutoPlayFunc(){
+	timer1 = setInterval(moveImages, Interval);
+}
+
+function moveImages(leftOrRight) {
+	var visibleElemId=document.getElementsByClassName("show-it")[0].id;
+		
+	if(leftOrRight=="left"){
+		var prevId=parseInt(visibleElemId)-1;
+		if(prevId>=0){
+			document.getElementById(visibleElemId).setAttribute("class","hide-it");
+			document.getElementById(prevId).setAttribute("class","show-it");
+		}
+	} else {
+		var nextId=parseInt(visibleElemId)+1;
+		if(nextId<snaps.length){
+			document.getElementById(visibleElemId).setAttribute("class","hide-it");
+			document.getElementById(nextId).setAttribute("class","show-it");
+		}
+	}
+}
+
+document.onkeydown = function(e) {
+    e = e || window.event;
+    switch(e.which || e.keyCode) {
+        case 37: // left
+        clearInterval(timer1);
+		moveImages("left");
+		break;
+
+        case 38: // up
+        clearInterval(timer1);
+		moveImages("left");
+        break;
+
+        case 39: // right
+        clearInterval(timer1);
+		moveImages("right")
+        break;
+
+        case 40: // down
+        clearInterval(timer1);
+		moveImages("right")
+		break;
+
+        default: return; // exit this handler for other keys
+    }
+    e.preventDefault(); // prevent the default action (scroll / move caret)
+}
+
+</script>
+
+</head>
+
+<body onload="createImageObjectsOnPage()">
+
+<h6 class="stopAutoPlay" onclick="stopAutoPlayFunc()">STOP AUTOPLAY</h6>
+<h6 class="startAutoPlay" onclick="resumeAutoPlayFunc()">START AUTOPLAY</h6>
+<div id="allSnaps">
+</div>
+</body>
+
+</html>

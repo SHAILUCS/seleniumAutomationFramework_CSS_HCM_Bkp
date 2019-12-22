@@ -1,0 +1,191 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="SMOKE_SUITE" verbose="1" thread-count="2"
+	parallel="methods">
+	<parameter name="remoteURL" value="" /><!-- http://192.168.0.181:4444/wd/hub -->
+	<listeners>
+		<listener class-name="com.testNgListener.CustomListener_HMap" />
+	</listeners>
+
+	<!-- ${environment} -->
+
+	<test name="SMOKE_TESTS_">
+		<parameter name="environment" value="${environment}" />
+		<parameter name="browser" value="chrome" />
+		<parameter name="platform" value="" />
+		<parameter name="user" value="SSR-RA1" />
+		<classes>
+		
+		
+		<!-- ADARSH -->
+			<class name="tests.recruit.RecruitmentModule">
+				<methods>
+
+				     <!-- <include
+						name="HCM188_Recruit_TC02_RecruiterAdmin_VerifyJobTypeJobCategoryJobSubCategoryEmploymentTypeSalaryRange">
+						<parameter name="user" value="Recruit Admin" />
+					</include> -->
+
+					 <!-- <include
+						name="HCM188_Recruit_TC03_RecruiterAdmin_CheckSalaryCheckBoxFunction">
+						<parameter name="user" value="Recruit Admin" />
+					</include> -->
+
+				 	<!-- <include
+						name="HCM188_Recruit_TC04_RecruiterAdmin_VerifyJobDetailsOnPreviewpost">
+						<parameter name="user" value="Recruit Admin" />
+					</include> -->
+					
+					<!-- <include
+						name="HCM188_Recruit_TC01_RecruiterAdmin_CreateJobSelectDataOnDropdown">
+						<parameter name="user" value="Recruit Admin" />
+					</include> -->
+					
+					<!-- <include
+						name="HCM188_Recruit_TC14_RecruiterAdminJob_ResetFunctionality">
+						<parameter name="user" value="Recruit Admin" />
+					</include> -->
+					
+					<!-- <include
+						name="HCM188_Recruit_TC15_RecruiterAdminJob_SaveAsDraftFunctionality">
+						<parameter name="user" value="Recruit Admin" />
+					</include> -->
+					
+					<!-- <include
+						name="HCM188_Recruit_TC16_RecruiterJobVerify_JobDetailsOnPreviewAndJobPost">
+						<parameter name="user" value="Recruit Admin" />
+					</include> -->
+					
+					<include
+						name="Recruit_TC07_TaskList_verify_SearchFunctionlity">
+						<parameter name="user" value="Recruit Admin" />
+					</include>
+					
+					<!-- <include
+						name="HCM_Recruit_TC05_RecruiterCreateTask_DateTimeDuration">
+						<parameter name="user" value="Recruit Admin" />
+					</include>
+ -->
+
+				</methods>
+			</class>
+		
+			<!-- <class name="tests.recruit.RecruitmentModule">
+				<methods> -->
+		
+					<!-- <include name="Recruit_TC08_TaskList_CheckFilter">
+						<parameter name="user" value="Recruit Admin" />
+					</include> -->
+					<!-- <include
+						name="HCM198_Recruit_TC07_Recruiter_FilterListingDropdown">
+						<parameter name="user" value="Recruit Admin" />
+					</include> -->
+			
+					<!-- <include name="Recruit_TC08_TaskList_CheckFilter">
+						<parameter name="user" value="Recruit Admin" />
+					</include> -->
+					
+					<!-- <include name="HCM196_Recruit_TC05_RAdmin_ListingDropdown">
+						<parameter name="user" value="Recruit Admina" />
+					</include> -->
+
+					<!-- <include name="Recruit_TC09_TaskList_ViewTaskPopUp">
+						<parameter name="user" value="Recruit Admin" />
+					</include>  -->
+
+					<!-- <include                
+						name="Recruit_TC010_TaskList_CheckCompleteATask">
+						<parameter name="user" value="Recruit Admin" />
+					</include>
+					
+					<include 
+						name="Recruit_TC011_TaskList_CheckArchiveTask">
+						<parameter name="user" value="Recruit Admin" />
+					</include>
+					
+					<include 
+						name="Recruit_TC012_TaskList_CheckManageGroupDayTask">
+						<parameter name="user" value="Recruit Admin" />
+					</include>
+					
+					<include 
+						name="Recruit_TC013_TaskPopUp_AttachAndRemoveApplicant">
+						<parameter name="user" value="Recruit Admin" />
+					</include>
+					<include 
+						name="Recruit_TC014_TaskList_ManageCabTask">
+						<parameter name="user" value="Recruit Admin" />
+					</include> -->
+					
+					<!-- <include 
+						name="Recruit_TC015_CreateTaskPopUP_Add_RemovePrimaryRecruiter">
+						<parameter name="user" value="Recruit Admin" />
+					</include> -->
+					
+					<!-- <include 
+						name="Recruit_TC016_EditTaskPopUP_Add_RemovePrimaryRecruiter">
+						<parameter name="user" value="Recruit Admin" />
+					</include> -->
+					
+					<!-- <include 
+						name="Recruit_TC017_EditTaskPopUP_Add_RemoveApplicants">
+						<parameter name="user" value="Recruit Admin" />
+					</include> -->
+					
+					<!-- <include 
+							name="Recruiter_TC018_CreateTask_CheckApplicantFor_1ReviewOnlineApplication">
+							<parameter name="user" value="Recruit Admin" />
+						</include> -->
+						
+						
+					
+					<!-- <include 
+						name="Recruiter_TC19_CreateTask_CheckApplicantFor_2PhoneInterview">
+						<parameter name="user" value="Recruit Admin" />
+					</include> -->
+					
+					<!-- <include 
+						name="Recruiter_TC20_CreateTask_CheckApplicantFor_3Group_Interview">
+						<parameter name="user" value="Recruit Admin" />
+					</include> -->
+					
+					<!-- <include 
+						name="Recruiter_TC21_CreateTask_CheckApplicantFor_4Mandatory_Documentation">
+						<parameter name="user" value="Recruit Admin" />
+					</include> -->
+					
+					<!-- <include 
+						name="Recruiter_TC22_CreateTask_CheckApplicantFor_5Reference_Checks">
+						<parameter name="user" value="Recruit Admin" />
+					</include>
+					 -->
+					<!-- <include 
+						name="Recruiter_TC23_CreateTask_CheckApplicantFor_6CAB_day">
+						<parameter name="user" value="Recruit Admin" />
+					</include> -->
+					
+					 <!-- <include 
+						name="Recruiter_TC24_CreateTask_CheckApplicantFor_7HiringStage">
+						<parameter name="user" value="Recruit Admin" />
+					</include> -->
+				
+					<!-- <include 
+						name="Recruiter_TC25_CreateTask_CheckApplicantFor_8NoneStage">
+						<parameter name="user" value="Recruit Admin" />
+					</include> -->
+				
+				<!-- Email Dependancy -->
+					<!-- <include 
+						name="Recruiter_TC26_CreateTask_CheckMail_GroupInterview">
+						<parameter name="user" value="Recruit Admin" />
+					</include> -->
+					
+					<!-- <include 
+						name="Recruiter_TC27_CreateTask_CheckMail_Cab_DayStage">
+						<parameter name="user" value="Recruit Admin" />
+					</include> -->
+				
+			<!-- 	</methods>
+			</class> -->
+		</classes>
+	</test>
+</suite>

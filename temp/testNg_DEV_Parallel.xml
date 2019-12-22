@@ -1,0 +1,45 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="In_Parallel" verbose="1" thread-count="5" parallel="methods">
+<parameter name="remoteURL" value=""/><!-- http://192.168.0.181:4444/wd/hub -->
+<listeners>
+	<listener class-name="com.testNgListener.CustomListener_HMap"/>
+</listeners>
+
+
+  <test name="Parallel_POC_C1" >
+  <parameter name="environment" value="${environment}" />
+  <parameter name="browser" value="chrome"/>
+  <parameter name="platform" value=""/>
+		<parameter name="user" value="NGC-S"/>
+    <classes>
+        <class name="tests.Parallel">
+        	<methods>
+        		<include name="Test1_P">
+        			<parameter name="user" value="NGC-S1"/>
+        		</include>
+        		<!-- <include name="Test2_P">
+        			<parameter name="user" value="NGC-S"/>
+        		</include> -->
+        		<!-- <include name="Test3_P"></include> -->
+        		<!-- <include name="Test4_P"></include> -->
+        	</methods>
+        </class>
+        
+        <class name="tests.Parallel2">
+        	<methods>
+        		<!-- <include name="Test1_P">
+        			<parameter name="user" value="NGC-S"/>
+        		</include> -->
+        		<include name="Test2_P">
+        			<parameter name="user" value="NGC-S2"/>
+        		</include>
+        		<!-- <include name="Test3_P"></include> -->
+        		<!-- <include name="Test4_P"></include> -->
+        	</methods>
+        </class>
+    </classes>
+  </test> 
+  
+   
+  
+</suite>

@@ -1,0 +1,121 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="SMOKE_SUITE" verbose="1" thread-count="1"
+	parallel="methods">
+	<parameter name="remoteURL" value="" />
+	<!-- http://192.168.0.181:4444/wd/hub -->
+	<listeners>
+		<listener class-name="com.testNgListener.CustomListener_HMap" />
+	</listeners>
+
+	<!-- ${environment} -->
+
+	<test name="SMOKE_TESTS_">
+		<parameter name="environment" value="${environment}" />
+		<parameter name="browser" value="chrome" />
+		<parameter name="platform" value="" />
+		<parameter name="user" value="SSR-RA1" />
+		<classes>
+			<class name="tests.crm.CRM_Tests">
+			<methods>
+ 	<!-- <include name="HCM89_TC01_UIVerification_CRMPage_CrmAdmin"> 
+	<parameter name="user" value="CRM Admin" /> </include> 
+	
+	<include name="HCM90_TC01_UIVerification_CRMPage_CrmUser"> 
+	<parameter name="user" value="CRM User" /> </include> 
+	
+	<include name="HCM94_TC01_ParticipantDetails_CRMPage_CrmAdmin"> 
+	<parameter name="user" value="CRM Admin" /> </include> 
+	
+	<include name="HCM94_TC02_ParticipantDetails_CRMPage_CrmUser"> 
+	<parameter name="user" value="CRM User" /> </include>  
+	
+	<include name="HCM95_TC01_ParticipantintakeLatestactions_CRMPage_CrmAdmin"> 
+	<parameter name="user" value="CRM Admin" /> </include>  -->
+ 
+	 <include name="HCM96_TC01_ParticipantintakeDuetask_CRMPage_CrmAdmin"> 
+	 <parameter name="user" value="CRM Admin" /> </include>  
+	  
+	<!--  <include name="HCM97_TC01_ParticipantintakeLatestUpdates_CRMPage_CrmAdmin"> 
+	 <parameter name="user" value="CRM Admin" /> </include>
+	 
+	 <include name="HCM98_TC01_ParticipantDetails_CRMPage_CrmUser"> 
+	 <parameter name="user" value="CRM User" /> </include>
+	  
+	 <include name="HCM107_TC01_ParticipantQuikeView_CRMPage_CrmAdmin"> 
+	 <parameter name="user" value="CRM Admin" /> </include> 
+	
+	 <include name="HCM108_TC01_LatestUpdates_ParticipantsScreen_CRMPage_CrmUser"> 
+	 <parameter name="user" value="CRM User" /> </include>  
+	 
+	 <include name="HCM108_TC01_LatestUpdates_ParticipantsScreen_CRMPage_CrmAdmin"> 
+	 <parameter name="user" value="CRM Admin" /> </include>
+	  
+	 <include name="HCM109_TC01_ParticipantsScreen_Intakeprogressbar_CRMPage_CrmAdmin"> 
+	 <parameter name="user" value="CRM Admin" /> </include> 
+	 
+	<include name="HCM120_TC01_Participant_Shifts_CRMPage_CrmAdmin"> 
+	 <parameter name="user" value="CRM Admin" /> </include>
+ 
+	 <include name="TC01_CRM_prospective_participants_UI_Elements_varify"> 
+	 <parameter name="user" value="CRM Admin" /> </include> 
+	 
+	 <include name="TC02_CRM_prospective_participants_Details_Dashboard_UI_verification"> 
+	 <parameter name="user" value="CRM Admin" /> </include> 
+	 
+	 <include name="TC03_CRM_EditParticipant_info_varification"> 
+	 <parameter name="user" value="CRM Admin" /> </include>
+	 
+	 <include name="TC04_CRM_Assignedto_Functionalityvalidation"> 
+	 <parameter name="user" value="CRM Admin" /> </include> 
+	 
+	 <include name="TC05_CRM_Manage_Attcthmant_Validation"> 
+	 <parameter name="user" value="CRM Admin" /> </include>
+	 
+	 <include name="TC06_CRM_Intake_Progress_Validation"> 
+	 <parameter name="user" value="CRM Admin" /> </include> 
+	 
+	 <include name="TC07_CRM_FMS_Case_Validation"> 
+	 <parameter name="user" value="CRM Admin" /> </include> 
+	 
+	 <include name="TC08_CRM_Participant_Ability_Page_UI_Verification"> 
+	 <parameter name="user" value="CRM Admin" /> </include> 
+	 
+	 <include name="TC09_CRM_edit_Participant_Ability_Page_UI_Verification"> 
+	  <parameter name="user" value="CRM Admin" /> </include> 
+	  
+	  <include name="TC010_CRM_latest_Update_Page_UI_Verification"> 
+	  <parameter name="user" value="CRM Admin" /> </include> 
+	  
+	  <include name="TC11_CRM_relavant_Attachment_Verification"> 
+	  <parameter name="user" value="CRM Admin" /> </include> 
+	  
+	  <include name="TC12_CRM_relavant_Attachment_Verification"> 
+	  <parameter name="user" value="CRM Admin" /> </include>  
+	   
+	  <include name="TC13_CRM_shift_UI_Verification">
+	    <parameter name="user" value="CRM Admin" /> </include>
+	    
+	    
+	    
+	
+	 <include name="TC14_CRM_shift_Function_Verification">
+	  <parameter name="user" value="CRM Admin" /> </include>
+	   
+     <include name="TC15_CRM_funding_Detail_UI_Validation">
+	  <parameter name="user" value="CRM Admin" /> 
+	  </include>
+	   <include name="TC16_CRM_funding_Detail_Function_Validation">
+	  <parameter name="user" value="CRM Admin" /> 
+	  </include>
+     <include name="TC17_CRM_create_participant">
+	  <parameter name="user" value="CRM Admin" /> 
+	  </include> 
+  -->
+  
+  
+  
+				</methods>
+			</class>
+		</classes>
+	</test>
+</suite>

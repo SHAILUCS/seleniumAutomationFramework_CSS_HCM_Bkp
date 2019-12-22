@@ -1,0 +1,29 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="UTILITY_SUITE" verbose="1" thread-count="5" parallel="methods">
+	<parameter name="remoteURL" value="" /><!-- http://192.168.0.181:4444/wd/hub -->
+	<listeners>
+		<listener class-name="com.testNgListener.CustomListener_HMap" />
+	</listeners>
+
+	<!-- ${environment} -->
+
+	<test name="UTILITY_TEST">
+		<parameter name="environment" value="${environment}" />
+		<parameter name="browser" value="chrome" />
+		<parameter name="platform" value="" />
+		<parameter name="user" value="Admin" />
+		<classes>
+			<class name="tests.Utility">
+				<methods>
+				
+					<include name="createUser">
+						<parameter name="user" value="Admin" />
+						<parameter name="startRowIndex" value="24" />
+						<parameter name="endRowIndex" value="25" /> 
+					</include>
+					
+				</methods>
+			</class>
+		</classes>
+	</test>
+</suite>

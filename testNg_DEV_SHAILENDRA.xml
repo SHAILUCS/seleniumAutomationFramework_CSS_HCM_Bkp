@@ -1,0 +1,111 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="SMOKE_SUITE" verbose="1" thread-count="2" parallel="methods">
+	<parameter name="remoteURL" value="" /><!-- http://192.168.0.181:4444/wd/hub -->
+	<listeners>
+		<listener class-name="com.testNgListener.CustomListener_HMap" />
+	</listeners>
+
+	<!-- ${environment} -->
+
+	<test name="SMOKE_TESTS_">
+		<parameter name="environment" value="${environment}" />
+		<parameter name="browser" value="chrome" />
+		<parameter name="platform" value="" />
+		<parameter name="user" value="Admin" />
+		<classes>
+		
+			<class name="tests.recruit.Recruitment_HCM166">
+				<methods>
+					<include
+						name="Recruit_TC14_RecruiterManagement_DisableRecruiter_AttachParticipants_AutoAllocation">
+						<parameter name="user" value="Admin" />
+					</include>
+				</methods>
+			</class>
+		
+			<!--  <class name="tests.recruit.Recruitment_HCM166">
+				<methods> -->
+				
+					<!--
+					<include name="HCM166_Recruit_TC01_RecruiterManagement_VerifyPageContent">
+						<parameter name="user" value="Recruit Admin" />
+					</include>
+					
+					<include name="HCM166_Recruit_TC02_RecruiterManagement_VerifyFilterDropdownFunc">
+						<parameter name="user" value="Recruit Admin" />
+					</include>
+					
+					<include name="HCM166_Recruit_TC03_RecruiterManagement_VerifyQuickViewContent">
+						<parameter name="user" value="Recruit Admin" />
+					</include>
+					
+					<include name="HCM166_Recruit_TC04_RecruiterManagement_VerifyTextSearch">
+						<parameter name="user" value="Recruit Admin" />
+					</include>
+					
+					<exclude name="HCM166_Recruit_TC05_RecruiterManagement_VerifyDefaultSorting" />
+					
+					<include name="HCM166_Recruit_TC06_RecruiterManagement_VerifyAllocatedPreferredRecruitmentAreas">
+						<parameter name="user" value="Recruit Admin" />
+					</include>
+					
+					<include name="HCM166_Recruit_TC07_RecruiterManagement_VerifyRecruiterDetailsContent">
+						<parameter name="user" value="Recruit Admin" />
+					</include>
+					
+					<include name="HCM166_Recruit_TC08_RecruiterManagement_CreateTask">
+						<parameter name="user" value="Recruit Admin" />
+					</include>
+					
+					<include name="HCM166_Recruit_TC09_RecruiterManagement_CurrentTaskSchedules_CalendarNumLinks">
+						<parameter name="user" value="Recruit Admin" />
+					</include>
+					
+					<include name="HCM166_Recruit_TC10_RecruiterManagement_CurrentTaskSchedules_DisableRecruiterPopupUI">
+						<parameter name="user" value="Recruit Admin" />
+					</include>
+					
+					<include name="Recruit_TC11_RecruiterManagement_AddRecruiter_VerifyUI">
+						<parameter name="user" value="Recruit Admin" />
+					</include>
+					
+					<include name="Recruit_TC12_RecruiterManagement_AddRecruiter">
+						<parameter name="user" value="Admin" />
+					</include>
+					
+					<include name="Recruit_TC13_RecruiterManagement_DisableRecruiter_NoParticipants">
+						<parameter name="user" value="Recruit Admin" />
+					</include>
+					
+					<include name="Recruit_TC14_RecruiterManagement_DisableRecruiter_AttachParticipants_AutoAllocation">
+						<parameter name="user" value="Admin" />
+					</include>
+					
+					<include name="Recruit_TC15_RecruiterManagement_DisableRecruiter_AttachParticipants_CustomAllocation">
+						<parameter name="user" value="Admin" />
+					</include>
+					
+					<include name="Recruit_TC16_RecruiterDetails_DisableRecruiter_AttachParticipants_CustomAllocation">
+						<parameter name="user" value="Admin" />
+					</include>
+					 -->
+					 
+					<!-- <include name="Recruit_TC17_RecruiterDetails_TaskDetail_QuickView_VerifyUI">
+						<parameter name="user" value="Recruit Admin" />
+					</include>
+					
+					<include name="Recruit_TC18_RecruiterDetails_VerifySavedTaskOnViewPopup">
+						<parameter name="user" value="Recruit Admin" />
+					</include> -->
+					
+				
+					<!-- <include name="Recruit_TC19_RecruiterDetails_CompleteATask">
+						<parameter name="user" value="Recruit Admin" />
+					</include> -->
+					
+				<!-- </methods>
+			</class> -->
+			
+		</classes>
+	</test>
+</suite>

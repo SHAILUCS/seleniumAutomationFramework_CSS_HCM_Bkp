@@ -1,0 +1,153 @@
+
+
+----------------------------------------------------------------
+Code Review Checklist:
+----------------------------------------------------------------
+
+  Does the code work?Does it perform its intended function, the logic is correct etc.
+  
+  Is all the code easily understood?
+ 
+  Is there any redundant or duplicate code?
+ 
+  Is there any commented out code?
+ 
+  Do loops have a set length and correct termination conditions?
+ 
+  Do the names used in the program convey intent?
+ 
+  Class Namings :Class names should be nouns, in mixed case with the first letter of each internal word capitalized.
+ 
+  Object/Variable Namings:should be in lowerCamelCase
+ 
+  Method Namings :Method name should clearly state the action they perform. It should start with lower case. and Words should be in camel case notation.
+ 
+  Proper Indentation : 3 0r more spaces should be used as the unit of indentation.
+ 
+  Proper Formatting : Indentation, Spacing,Class Member Ordering,Maximum Line Length and Parentheses.
+
+  Exception handling(not throwing)
+ 
+  Making sure your scripts are Environment(AWS, STG) independent
+ 
+  Making sure Test Data is in separate file(if not then atleast it should not be scattered in scripts)
+   
+  Use and Create common functions 
+ 
+  Keep Common objects in a separate class
+  
+  Use ReactTable class to work with objects which are inside Tables  
+   
+  Usage of xpath Axes and Functions for Effective xpath
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+We can remove ### these ones
+Rest looks Good,
+Great Job, 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Archana
+Shailendra - changes
+
+
+id
+class
+tagName
+name
+css
+xpath
+linkText
+partialLinkText
+
+
+/**
+
+This is a page object model class, to store the objects of 
+Login Page and to store the functionality of Login page
+
+*/
+public class Login{
+
+	/** Constructor to initialize the page objects*/
+	public Login(){
+		PageFactory.initElements(DriverFactory.getDriver(),this);
+	}
+
+	@FindBy(name = "username")
+	private WebElement text_Username;
+
+}
+
+
+
+
+public void perfomrLogin(String username, String pwd){
+
+userName.sendKeys(username);
+password.sendKeys(pwd);
+loginButton.click();
+
+}
+
+
+
+	OBJECT FOR DROPDOWN
+	
+	@FindBy(xpath = "(//span[contains(@id,'react-select')][contains(@class,'value-wrapper')])[2]")
+	public WebElement dropdown_Filter;
+	
+	@FindBy(xpath = "//label[.='Stage:']/..//span[contains(@id,'react-select')]/div")
+	private WebElement dropdown_Department;
+	
+	
+	

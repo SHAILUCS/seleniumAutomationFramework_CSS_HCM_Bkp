@@ -1,0 +1,233 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>Automation</groupId>
+	<artifactId>IOTRON-AutomationFramework</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
+
+	<name>IOTRON-AutomationFramework</name>
+	<url>http://maven.apache.org</url>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<java.version>1.8</java.version>
+		
+		<!--Dependency Versions -->
+		<selenium.version>3.141.59</selenium.version>
+		<phantomjsdriver.version>1.4.3</phantomjsdriver.version>
+		<testng.version>6.11</testng.version>
+		<common-io.version>1.3.2</common-io.version>
+		<poi-ooxml.version>3.17-beta1</poi-ooxml.version>
+		<javax-mail.version>1.4</javax-mail.version>
+		<extentreports.version>3.0.6</extentreports.version>
+		<itextpdf.version>5.5.10</itextpdf.version>
+		<commonscsv.version>1.5</commonscsv.version>
+		<jsonsimple.version>1.1</jsonsimple.version>
+		<mysql.version>5.1.38</mysql.version>
+		
+		<!--Plugin Versions -->
+		<driver-binary-downloader-maven-plugin.version>1.0.17</driver-binary-downloader-maven-plugin.version>
+		<surefire-plugin.version>2.18.1</surefire-plugin.version>
+		
+		<!--Configuration Properties -->
+		<overwrite.binaries>false</overwrite.binaries>
+		<read.timeout>30000</read.timeout>
+		<connection.timeout>40000</connection.timeout>
+		<retry.attempts>4</retry.attempts>
+		<proxyEnabled>false</proxyEnabled>
+		<proxyHost />
+		<proxyPort />
+
+		<!-- Controlling Test and Environment Info -->
+		<testNGFileName>testNg_REGRESSION.xml</testNGFileName>
+	</properties>
+
+	<dependencies>
+		<!-- https://mvnrepository.com/artifact/junit/junit -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.11</version>
+			<scope>test</scope>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-remote-driver</artifactId>
+			<version>${selenium.version}</version>
+			<scope>test</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>com.github.detro.ghostdriver</groupId>
+					<artifactId>phantomjsdriver</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-java</artifactId>
+			<version>${selenium.version}</version>
+			<scope>test</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>com.github.detro.ghostdriver</groupId>
+					<artifactId>phantomjsdriver</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.seleniumhq.selenium</groupId>
+					<artifactId>htmlunit-driver</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>com.codeborne</groupId>
+			<artifactId>phantomjsdriver</artifactId>
+			<version>${phantomjsdriver.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-htmlunit-driver</artifactId>
+			<version>2.52.0</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>${common-io.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml</artifactId>
+			<version>${poi-ooxml.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<version>${testng.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.mail</groupId>
+			<artifactId>mail</artifactId>
+			<version>${javax-mail.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.aventstack</groupId>
+			<artifactId>extentreports</artifactId>
+			<version>${extentreports.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.itextpdf</groupId>
+			<artifactId>itextpdf</artifactId>
+			<version>${itextpdf.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-csv</artifactId>
+			<version>${commonscsv.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.googlecode.json-simple</groupId>
+			<artifactId>json-simple</artifactId>
+			<version>${jsonsimple.version}</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>${mysql.version}</version>
+		</dependency>
+
+	</dependencies>
+
+	<profiles>
+		<profile>
+			<id>selenium-tests</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>com.lazerycode.selenium</groupId>
+						<artifactId>driver-binary-downloader-maven-plugin</artifactId>
+						<version>${driver-binary-downloader-maven-plugin.version}</version>
+						<configuration>
+							<rootStandaloneServerDirectory>${project.basedir}/ServerExes/selenium_standalone_binaries</rootStandaloneServerDirectory>
+							<downloadedZipFileDirectory>${project.basedir}/ServerExes/selenium_standalone_zips</downloadedZipFileDirectory>
+							<customRepositoryMap>${project.basedir}/TestData/RepositoryMap.xml</customRepositoryMap>
+							<overwriteFilesThatExist>${overwrite.binaries}</overwriteFilesThatExist>
+							<onlyGetDriversForHostOperatingSystem>true</onlyGetDriversForHostOperatingSystem>
+							<fileDownloadRetryAttempts>${retry.attempts}</fileDownloadRetryAttempts>
+							<fileDownloadReadTimeout>${read.timeout}</fileDownloadReadTimeout>
+							<operatingSystems>
+								<windows>true</windows>
+								<linux>true</linux>
+								<mac>true</mac>
+							</operatingSystems>
+						</configuration>
+						<executions>
+							<execution>
+								<goals>
+									<goal>selenium</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+
+
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-surefire-plugin</artifactId>
+						<version>${surefire-plugin.version}</version>
+						<configuration>
+							<suiteXmlFiles>
+								<!-- TestNG suite XML files -->
+								<!-- <file>testNg_UI_Verification.xml</file> -->
+								<!-- <file></file> -->
+								<file>${testNGFileName}</file>
+							</suiteXmlFiles>
+							<properties>
+								<property>
+									<name>suitethreadpoolsize</name>
+									<value>2</value>
+								</property>
+							</properties>
+							<systemPropertyVariables>
+								<proxyEnabled>${proxyEnabled}</proxyEnabled>
+								<proxyHost>${proxyHost}</proxyHost>
+								<proxyPort>${proxyPort}</proxyPort>
+								<phantomjs.binary.path>${phantomjs.binary.path}</phantomjs.binary.path>
+								<webdriver.chrome.driver>${webdriver.chrome.driver}</webdriver.chrome.driver>
+								<webdriver.ie.driver>${webdriver.ie.driver}</webdriver.ie.driver>
+								<webdriver.opera.driver>${webdriver.opera.driver}</webdriver.opera.driver>
+								<webdriver.gecko.driver>${webdriver.gecko.driver}</webdriver.gecko.driver>
+								<webdriver.edge.driver>${webdriver.edge.driver}</webdriver.edge.driver>
+							</systemPropertyVariables>
+
+							<additionalClasspathElements>
+								<additionalClasspathElement>${project.basedir}/db_queries/ojdbc14.jar</additionalClasspathElement>
+							</additionalClasspathElements>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+</project>

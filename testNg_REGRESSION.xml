@@ -1,0 +1,721 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Regression_Suite" verbose="1" thread-count="2"
+	parallel="methods">
+	<parameter name="remoteURL" value="" /><!-- http://192.168.0.181:4444/wd/hub -->
+	<listeners>
+		<listener class-name="com.testNgListener.CustomListener_HMap" />
+	</listeners>
+
+	<!-- ${environment} -->
+
+	<test name="Regression_Tests">
+		<parameter name="environment" value="${environment}" />
+		<parameter name="browser" value="chrome" />
+		<parameter name="platform" value="" />
+		<classes>
+
+			<!-- SHAILENDRA -->
+
+			<class name="tests.recruit.Recruitment_HCM166">
+				<methods>
+
+					<include
+						name="HCM166_Recruit_TC01_RecruiterManagement_VerifyPageContent">
+						<parameter name="user" value="Recruit Admin" />
+					</include>
+
+					<include
+						name="HCM166_Recruit_TC02_RecruiterManagement_VerifyFilterDropdownFunc">
+						<parameter name="user" value="Recruit Admin" />
+					</include>
+
+					<include
+						name="HCM166_Recruit_TC03_RecruiterManagement_VerifyQuickViewContent">
+						<parameter name="user" value="Recruit Admin" />
+					</include>
+
+					<include
+						name="HCM166_Recruit_TC04_RecruiterManagement_VerifyTextSearch">
+						<parameter name="user" value="Recruit Admin" />
+					</include>
+
+					<exclude
+						name="HCM166_Recruit_TC05_RecruiterManagement_VerifyDefaultSorting" />
+
+					<include
+						name="HCM166_Recruit_TC06_RecruiterManagement_VerifyAllocatedPreferredRecruitmentAreas">
+						<parameter name="user" value="Recruit Admin" />
+					</include>
+
+					<include
+						name="HCM166_Recruit_TC07_RecruiterManagement_VerifyRecruiterDetailsContent">
+						<parameter name="user" value="Recruit Admin" />
+					</include>
+
+					<include
+						name="HCM166_Recruit_TC08_RecruiterManagement_CreateTask">
+						<parameter name="user" value="Recruit Admin" />
+					</include>
+
+					<include
+						name="HCM166_Recruit_TC09_RecruiterManagement_CurrentTaskSchedules_CalendarNumLinks">
+						<parameter name="user" value="Recruit Admin" />
+					</include>
+
+					<include
+						name="HCM166_Recruit_TC10_RecruiterManagement_CurrentTaskSchedules_DisableRecruiterPopupUI">
+						<parameter name="user" value="Recruit Admin" />
+					</include>
+
+					<include
+						name="Recruit_TC11_RecruiterManagement_AddRecruiter_VerifyUI">
+						<parameter name="user" value="Recruit Admin" />
+					</include>
+
+					<include
+						name="Recruit_TC12_RecruiterManagement_AddRecruiter">
+						<parameter name="user" value="Admin" />
+					</include>
+
+					<include
+						name="Recruit_TC13_RecruiterManagement_DisableRecruiter_NoParticipants">
+						<parameter name="user" value="Recruit Admin" />
+					</include>
+
+					<include
+						name="Recruit_TC14_RecruiterManagement_DisableRecruiter_AttachParticipants_AutoAllocation">
+						<parameter name="user" value="Admin" />
+					</include>
+
+					<include
+						name="Recruit_TC15_RecruiterManagement_DisableRecruiter_AttachParticipants_CustomAllocation">
+						<parameter name="user" value="Admin" />
+					</include>
+
+					<include
+						name="Recruit_TC16_RecruiterDetails_DisableRecruiter_AttachParticipants_CustomAllocation">
+						<parameter name="user" value="Admin" />
+					</include>
+
+					<include
+						name="Recruit_TC17_RecruiterDetails_TaskDetail_QuickView_VerifyUI">
+						<parameter name="user" value="Recruit Admin" />
+					</include>
+
+					<include
+						name="Recruit_TC18_RecruiterDetails_VerifySavedTaskOnViewPopup">
+						<parameter name="user" value="Recruit Admin" />
+					</include>
+
+					<include name="Recruit_TC19_RecruiterDetails_CompleteATask">
+						<parameter name="user" value="Recruit Admin" />
+					</include>
+
+				</methods>
+			</class>
+
+			<!-- ADARSH -->
+			<class name="tests.recruit.RecruitmentModule">
+				<methods>
+
+					<include
+						name="HCM196_Recruit_TC01_RAdmin_ApplicantListingColumnHeader">
+						<parameter name="user" value="Recruit Admin" />
+					</include>
+
+					<include name="HCM196_Recruit_TC02_RAdmin_QuickView">
+						<parameter name="user" value="Recruit Admin" />
+					</include>
+
+					<exclude name="HCM196_Recruit_TC03_RAdmin_SubStage" />
+
+					<exclude
+						name="HCM196_Recruit_TC04_RAdmin_Stage1ShowSeekAns" />
+
+					<include name="HCM196_Recruit_TC05_RAdmin_ListingDropdown">
+						<parameter name="user" value="Recruit Admin" />
+					</include>
+
+
+
+
+					<exclude
+						name="HCM198_Recruit_TC01_Recruiter_ApplicantListing" />
+
+					<exclude
+						name="HCM198_Recruit_TC02_Recruiter_FlagedoOrDuplicantAppNot" />
+
+					<include name="HCM198_Recruit_TC03_Recruiter_QuickView">
+						<parameter name="user" value="Recruit Admin" />
+					</include>
+
+
+					<exclude name="HCM198_Recruit_TC04_Recruiter_ApplicantId" />
+
+					<exclude
+						name="HCM198_Recruit_TC05_Recruiter_PendingSubStage" />
+
+					<exclude
+						name="HCM198_Recruit_TC06_Recruiter_SeekAnswerStage1" />
+
+					<include
+						name="HCM198_Recruit_TC07_Recruiter_FilterListingDropdown">
+						<parameter name="user" value="Recruit Admin" />
+					</include>
+
+					<include
+						name="HCM198_Recruit_TC07_Recruiter_FilterListingDropdown">
+						<parameter name="user" value="Recruit Admin" />
+					</include>
+
+
+
+					<include
+						name="HCM188_Recruit_TC01_RecruiterAdmin_CreateJobSelectDataOnDropdown">
+						<parameter name="user" value="Recruit Admin" />
+					</include>
+
+					<include
+						name="HCM188_Recruit_TC02_RecruiterAdmin_VerifyJobTypeJobCategoryJobSubCategoryEmploymentTypeSalaryRange">
+						<parameter name="user" value="Recruit Admin" />
+					</include>
+
+					<include
+						name="HCM188_Recruit_TC03_RecruiterAdmin_CheckSalaryCheckBoxFunction">
+						<parameter name="user" value="Recruit Admin" />
+					</include>
+
+					<include
+						name="HCM188_Recruit_TC04_RecruiterAdmin_VerifyJobDetailsOnPreviewpost">
+						<parameter name="user" value="Recruit Admin" />
+					</include>
+
+
+					<include
+						name="HCM188_Recruit_TC07_RecruiterAdminCreateJob_CheckALlRequiredValidation">
+						<parameter name="user" value="Recruit Admin" />
+					</include>
+
+					<include
+						name="HCM188_Recruit_TC14_RecruiterAdminJob_ResetFunctionality">
+						<parameter name="user" value="Recruit Admin" />
+					</include>
+
+					<include
+						name="HCM188_Recruit_TC15_RecruiterAdminJob_SaveAsDraftFunctionality">
+						<parameter name="user" value="Recruit Admin" />
+					</include>
+
+					<include
+						name="HCM188_Recruit_TC16_RecruiterJobVerify_JobDetailsOnPreviewAndJobPost">
+						<parameter name="user" value="Recruit Admin" />
+					</include>
+
+					<include
+						name="HCM188_Recruit_TC09_RecruiterJobVerify_DateRecurringCheckBox">
+						<parameter name="user" value="Recruit Admin" />
+					</include>
+
+					<include
+						name="HCM188_Recruit_TC013_RecruiterJobVerify_TextLayOutSection">
+						<parameter name="user" value="Recruit Admin" />
+					</include>
+
+					<include
+						name="HCM188_Recruit_TC08_RecruiterJobVerify_ValidationStartDateOrEndDate">
+						<parameter name="user" value="Recruit Admin" />
+					</include>
+
+
+					<include
+						name="HCM_Recruit_TC01_RecruiterCreateTask_CheckMaxApplicantValidation">
+						<parameter name="user" value="Recruit Admin" />
+					</include>
+
+					<include
+						name="HCM_Recruit_TC02_RecruiterCreateTask_VerifyUI">
+						<parameter name="user" value="Recruit Admin" />
+					</include>
+
+					<include
+						name="HCM_Recruit_TC03_RecruiterCreateTask_SearchRecruiter">
+						<parameter name="user" value="Recruit Admin" />
+					</include>
+
+					<include
+						name="HCM_Recruit_TC04_RecruiterCreateTask_CreateNewTask">
+						<parameter name="user" value="Recruit Admin" />
+					</include>
+
+
+					<include
+						name="HCM_Recruit_TC05_RecruiterCreateTask_DateTimeDuration">
+						<parameter name="user" value="Recruit Admin" />
+					</include>
+
+					<include name="HCM_Recruit_TC06_RecruiteTask_VerifyUI">
+						<parameter name="user" value="Recruit Admin" />
+					</include>
+
+
+
+
+					<include
+						name="Recruit_TC07_TaskList_verify_SearchFunctionlity">
+						<parameter name="user" value="Recruit Admin" />
+					</include>
+
+					<include name="Recruit_TC08_TaskList_CheckFilter">
+						<parameter name="user" value="Recruit Admin" />
+					</include>
+
+					<include name="Recruit_TC09_TaskList_ViewTaskPopUp">
+						<parameter name="user" value="Recruit Admin" />
+					</include>
+
+
+				</methods>
+			</class>
+
+			<!-- SHWETHA -->
+			<class name="tests.admin.AdminModule">
+				<methods>
+
+					<include name="TC01_Admin_UIVerification_UserMgmt">
+						<parameter name="user" value="Admin" />
+					</include>
+
+					<include name="TC02_Admin_FilterDropdown">
+						<parameter name="user" value="Admin" />
+					</include>
+
+					<include name="TC03_Admin_TextSearch">
+						<parameter name="user" value="Admin" />
+					</include>
+
+					<include name="TC04_Admin_CreateUser_InactiveUser">
+						<parameter name="user" value="Admin" />
+					</include>
+
+					<include name="TC05_Admin_CreateUser_Inactive_ActiveUser">
+						<parameter name="user" value="Admin" />
+					</include>
+
+					<include name="TC06_Admin_CreateUser_ArchiveUser">
+						<parameter name="user" value="Admin" />
+					</include>
+
+					<include name="TC07_Admin_EditUser">
+						<parameter name="user" value="Admin" />
+					</include>
+
+					<include name="TC08_Admin_CreateNewUser_CheckRole_Admin">
+						<parameter name="user" value="Admin" />
+					</include>
+
+					<include
+						name="TC09_Admin_CreateNewUser_CheckRole_Participants">
+						<parameter name="user" value="Admin" />
+					</include>
+
+					<include name="TC10_Admin_CreateNewUser_CheckRole_Member">
+						<parameter name="user" value="Admin" />
+					</include>
+
+					<include
+						name="TC11_Admin_CreateNewUser_CheckRole_Organization">
+						<parameter name="user" value="Admin" />
+					</include>
+
+					<include name="TC12_Admin_CreateNewUser_CheckRole_Schedule">
+						<parameter name="user" value="Admin" />
+					</include>
+
+					<include name="TC13_Admin_CreateNewUser_CheckRole_Fms">
+						<parameter name="user" value="Admin" />
+					</include>
+
+					<include
+						name="TC14_Admin_CreateNewUser_CheckRole_Fms_Incidents">
+						<parameter name="user" value="Admin" />
+					</include>
+
+					<include name="TC15_Admin_CreateNewUser_CheckRole_Imail">
+						<parameter name="user" value="Admin" />
+					</include>
+
+					<include
+						name="TC16_Admin_CreateNewUser_CheckRole_Recruitment">
+						<parameter name="user" value="Admin" />
+					</include>
+
+					<include
+						name="TC17_Admin_CreateNewUser_CheckRole_RecruitmentAdmin">
+						<parameter name="user" value="Admin" />
+					</include>
+
+					<include name="TC18_Admin_CreateNewUser_CheckRole_Crm">
+						<parameter name="user" value="Admin" />
+					</include>
+
+					<include name="TC19_Admin_CreateNewUser_CheckRole_CrmAdmin">
+						<parameter name="user" value="Admin" />
+					</include>
+
+					<include name="TC20_Admin_CreateNewUser_CheckRole_Finance">
+						<parameter name="user" value="Admin" />
+					</include>
+
+					<include name="TC21_Admin_Logs_VerifyPageContent">
+						<parameter name="user" value="Admin" />
+					</include>
+
+					<include name="TC22_Admin_Logs_Text_Search">
+						<parameter name="user" value="Admin" />
+					</include>
+
+					<include name="TC23_Admin_Logs_OnDatePicker">
+						<parameter name="user" value="Admin" />
+					</include>
+
+					<include
+						name="TC24_Admin_Logs_Verify_For_From_And_TO_datePicker">
+						<parameter name="user" value="Admin" />
+					</include>
+
+					<include
+						name="TC25_Admin_Logs_Verify_For_Logs_Participants">
+						<parameter name="user" value="Admin" />
+					</include>
+
+					<include
+						name="TC26_Admin_Logs_Verify_For_Logs_Organisation">
+						<parameter name="user" value="Admin" />
+					</include>
+
+					<include name="TC27_Admin_Logs_Verify_For_Logs_Fms">
+						<parameter name="user" value="Admin" />
+					</include>
+
+					<include name="TC28_Admin_Logs_Verify_For_Logs_Imail">
+						<parameter name="user" value="Admin" />
+					</include>
+
+					<include name="TC29_Admin_Logs_Verify_For_Logs_Members">
+						<parameter name="user" value="Admin" />
+					</include>
+
+					<include name="TC30_Admin_Logs_Verify_For_Logs_Schedule">
+						<parameter name="user" value="Admin" />
+					</include>
+
+					<include
+						name="TC31_Admin_Logs_Verify_For_Export_Selected_Button">
+						<parameter name="user" value="Admin" />
+					</include>
+
+					<include name="TC32_Admin_Logs_Verify_For_Pagination">
+						<parameter name="user" value="Admin" />
+					</include>
+
+					<include name="TC33_Admin_Approvals_Verify_For_Search">
+						<parameter name="user" value="Admin" />
+					</include>
+
+					<include
+						name="TC34_Admin_Approvals_Verify_For_On_datePicker">
+						<parameter name="user" value="Admin" />
+					</include>
+
+					<include name="TC35_Admin_Approvals_Verify_For_Icon_Pin">
+						<parameter name="user" value="Admin" />
+					</include>
+
+					<include name="TC36_Admin_Approvals_Verify_For_Icon_View">
+						<parameter name="user" value="Admin" />
+					</include>
+
+					<include name="TC37_Admin_Approvals_Verify_For_Pagination">
+						<parameter name="user" value="Admin" />
+					</include>
+
+
+				</methods>
+			</class>
+
+			<!-- Imail Module TestCases -->
+
+			<class name="tests.imail.Imail_Module">
+				<methods>
+					<include name="TC01_Admin_External_verifyUI">
+						<parameter name="user" value="Admin" />
+					</include>
+
+					<include
+						name="TC02_Admin_External_verify_SearchFunctionlity">
+						<parameter name="user" value="Admin" />
+					</include>
+
+					<include
+						name="TC03_Admin_External_verify_SortingFilterBySelect">
+						<parameter name="user" value="Admin" />
+					</include>
+
+					<include
+						name="TC04_Admin_External_verify_SortingFilterByDate">
+						<parameter name="user" value="Admin" />
+					</include>
+
+					<include name="TC05_Admin_External_verify_SendDraftMail">
+						<parameter name="user" value="Admin" />
+					</include>
+
+					<include
+						name="TC06_Admin_External_ComposeNewMail_Verify_ClientPortal">
+						<parameter name="user" value="Admin" />
+					</include>
+
+					<include
+						name="TC07_Admin_External_ComposeNewMailOnClientPortal_VerifyAdmin">
+						<parameter name="user" value="Admin" />
+					</include>
+
+					<include name="TC08_Admin_External_Check_MailMarkAsRead">
+						<parameter name="user" value="Admin" />
+					</include>
+
+					<include
+						name="TC09_Admin_External_Check_MailMarkAsFavourites">
+						<parameter name="user" value="Admin" />
+					</include>
+
+					<include name="TC10_Admin_External_Check_MailSetAsItemFlag">
+						<parameter name="user" value="Admin" />
+					</include>
+
+
+					<include name="TC11_Admin_External_Check_Mail_BlockItem">
+						<parameter name="user" value="Admin" />
+					</include>
+
+
+					<include name="TC12_Admin_External_Check_Mail_Archive">
+						<parameter name="user" value="Admin" />
+					</include>
+
+
+
+					<include name="TC13_Admin_Internal_verifyUI">
+						<parameter name="user" value="Admin" />
+					</include>
+
+					<include
+						name="TC14_Admin_Internal_verify_SearchFunctionlity">
+						<parameter name="user" value="Admin" />
+					</include>
+
+
+					<include
+						name="TC15_Admin_Internal_verify_SortingFilterByDate">
+						<parameter name="user" value="Admin" />
+					</include>
+
+
+					<include name="TC16_Admin_Internal_verify_SendDraftMail">
+						<parameter name="user" value="Admin" />
+					</include>
+
+
+					<include
+						name="TC17_Admin_Internal_ComposeNewMail_VerifyClient_Admin">
+						<parameter name="user" value="Admin" />
+					</include>
+
+
+
+					<include name="TC18_Admin_Internal_Check_MailMarkAsRead">
+						<parameter name="user" value="Admin" />
+					</include>
+
+					<include
+						name="TC19_Admin_Internal_Check_MailMarkAsFavourites">
+						<parameter name="user" value="Admin" />
+					</include>
+
+					<include name="TC20_Admin_Internal_Check_MailSetAsItemFlag">
+						<parameter name="user" value="Admin" />
+					</include>
+
+
+					<include name="TC21_Admin_Internal_Check_Mail_BlockItem">
+						<parameter name="user" value="Admin" />
+					</include>
+
+
+					<include name="TC22_Admin_Internal_Check_Mail_Archive">
+						<parameter name="user" value="Admin" />
+					</include>
+
+					<include name="TC23_Admin_Internal_Check_GroupMessages">
+						<parameter name="user" value="Admin" />
+					</include>
+
+					<include name=" TC24_Admin_Internal_send_GroupMessages">
+						<parameter name="user" value="Admin" />
+					</include>
+
+
+
+				</methods>
+			</class>
+
+
+			<!-- ARCHANA -->
+
+			<class name="tests.crm.CRM_Tests">
+				<methods>
+
+					<include name="HCM89_TC01_UIVerification_CRMPage_CrmAdmin">
+						<parameter name="user" value="CRM Admin" />
+					</include>
+
+					<include name="HCM90_TC01_UIVerification_CRMPage_CrmUser">
+						<parameter name="user" value="CRM User" />
+					</include>
+
+					<include
+						name="HCM94_TC01_ParticipantDetails_CRMPage_CrmAdmin">
+						<parameter name="user" value="CRM Admin" />
+					</include>
+
+					<include
+						name="HCM94_TC02_ParticipantDetails_CRMPage_CrmUser">
+						<parameter name="user" value="CRM User" />
+					</include>
+
+					<include
+						name="HCM95_TC01_ParticipantintakeLatestactions_CRMPage_CrmAdmin">
+						<parameter name="user" value="CRM Admin" />
+					</include>
+
+					<include
+						name="HCM96_TC01_ParticipantintakeDuetask_CRMPage_CrmAdmin">
+						<parameter name="user" value="CRM Admin" />
+					</include>
+
+					<include
+						name="HCM97_TC01_ParticipantintakeLatestUpdates_CRMPage_CrmAdmin">
+						<parameter name="user" value="CRM Admin" />
+					</include>
+
+					<include
+						name="HCM98_TC01_ParticipantDetails_CRMPage_CrmUser">
+						<parameter name="user" value="CRM User" />
+					</include>
+
+					<include
+						name="HCM107_TC01_ParticipantQuikeView_CRMPage_CrmAdmin">
+						<parameter name="user" value="CRM Admin" />
+					</include>
+
+					<include
+						name="HCM108_TC01_LatestUpdates_ParticipantsScreen_CRMPage_CrmUser">
+						<parameter name="user" value="CRM User" />
+					</include>
+
+					<include
+						name="HCM108_TC01_LatestUpdates_ParticipantsScreen_CRMPage_CrmAdmin">
+						<parameter name="user" value="CRM Admin" />
+					</include>
+
+					<include
+						name="HCM109_TC01_ParticipantsScreen_Intakeprogressbar_CRMPage_CrmAdmin">
+						<parameter name="user" value="CRM Admin" />
+					</include>
+
+					<include
+						name="HCM120_TC01_Participant_Shifts_CRMPage_CrmAdmin">
+						<parameter name="user" value="CRM Admin" />
+					</include>
+
+					<include
+						name="TC01_CRM_prospective_participants_UI_Elements_varify">
+						<parameter name="user" value="CRM Admin" />
+					</include>
+
+					<include
+						name="TC02_CRM_prospective_participants_Details_Dashboard_UI_verification">
+						<parameter name="user" value="CRM Admin" />
+					</include>
+
+					<include name="TC03_CRM_EditParticipant_info_varification">
+						<parameter name="user" value="CRM Admin" />
+					</include>
+
+					<include name="TC04_CRM_Assignedto_Functionalityvalidation">
+						<parameter name="user" value="CRM Admin" />
+					</include>
+
+					<include name="TC05_CRM_Manage_Attcthmant_Validation">
+						<parameter name="user" value="CRM Admin" />
+					</include>
+
+					<include name="TC06_CRM_Intake_Progress_Validation">
+						<parameter name="user" value="CRM Admin" />
+					</include>
+
+					<include name="TC07_CRM_FMS_Case_Validation">
+						<parameter name="user" value="CRM Admin" />
+					</include>
+
+					<include
+						name="TC08_CRM_Participant_Ability_Page_UI_Verification">
+						<parameter name="user" value="CRM Admin" />
+					</include>
+
+					<include
+						name="TC09_CRM_edit_Participant_Ability_Page_UI_Verification">
+						<parameter name="user" value="CRM Admin" />
+					</include>
+
+					<include
+						name="TC010_CRM_latest_Update_Page_UI_Verification">
+						<parameter name="user" value="CRM Admin" />
+					</include>
+
+					<include name="TC11_CRM_relavant_Attachment_Verification">
+						<parameter name="user" value="CRM Admin" />
+					</include>
+
+					<include name="TC12_CRM_relavant_Attachment_Verification">
+						<parameter name="user" value="CRM Admin" />
+					</include>
+
+					<include name="TC13_CRM_shift_UI_Verification">
+						<parameter name="user" value="CRM Admin" />
+					</include>
+
+					<include name="TC14_CRM_shift_Function_Verification">
+						<parameter name="user" value="CRM Admin" />
+					</include>
+
+					<include name="TC15_CRM_funding_Detail_UI_Validation">
+						<parameter name="user" value="CRM Admin" />
+					</include>
+					
+					<include name="TC16_CRM_funding_Detail_Function_Validation">
+						<parameter name="user" value="CRM Admin" />
+					</include>
+					
+					<exclude name = "TC17_CRM_create_participant" />
+					
+					<include name="TC18_CRM_create_ProspectiveParticipant">
+						<parameter name="user" value="CRM Admin" />
+					</include>
+
+				</methods>
+			</class>
+
+		</classes>
+	</test>
+</suite>

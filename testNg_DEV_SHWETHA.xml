@@ -1,0 +1,410 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Admin_Suit" verbose="1" thread-count="1" parallel="methods">
+	<parameter name="remoteURL" value="" /><!-- http://192.168.0.181:4444/wd/hub -->
+	<listeners>
+		<listener class-name="com.testNgListener.CustomListener_HMap" />
+	</listeners>
+
+	<!-- ${environment} -->
+
+	<test name="ADMIN_TESTS_">
+		<parameter name="environment" value="PM-AWS" />
+		<parameter name="browser" value="chrome" />
+		<parameter name="platform" value="" />
+		<parameter name="user" value="Admin" />
+		<classes>
+		
+		<!-- <class name="tests.admin.AdminModule">
+				<methods>
+                 
+					<include name="TC01_Admin_UIVerification_UserMgmt">
+						<parameter name="user" value="Admin" />
+					</include>
+
+					<include name="TC02_Admin_FilterDropdown">
+						<parameter name="user" value="Admin" />
+					</include>
+                 
+					<include name="TC03_Admin_TextSearch">
+						<parameter name="user" value="Admin" />
+					</include>
+
+					<include name="TC04_Admin_CreateUser_InactiveUser">
+						<parameter name="user" value="Admin" />
+					</include>
+
+					<include name="TC05_Admin_CreateUser_Inactive_ActiveUser">
+						<parameter name="user" value="Admin" />
+					</include>
+
+					<include name="TC06_Admin_CreateUser_ArchiveUser">
+						<parameter name="user" value="Admin" />
+					</include>
+
+					<include name="TC07_Admin_EditUser">
+						<parameter name="user" value="Admin" />
+					</include>
+
+					<include name="TC08_Admin_CreateNewUser_CheckRole_Admin">
+						<parameter name="user" value="Admin" />
+					</include>
+
+					<include name="TC09_Admin_CreateNewUser_CheckRole_Participants">
+						<parameter name="user" value="Admin" />
+					</include>
+
+					<include name="TC10_Admin_CreateNewUser_CheckRole_Member">
+						<parameter name="user" value="Admin" />
+					</include>
+
+					<include name="TC11_Admin_CreateNewUser_CheckRole_Organization">
+						<parameter name="user" value="Admin" />
+					</include>
+
+					<include name="TC12_Admin_CreateNewUser_CheckRole_Schedule">
+						<parameter name="user" value="Admin" />
+					</include>
+
+					<include name="TC13_Admin_CreateNewUser_CheckRole_Fms">
+						<parameter name="user" value="Admin" />
+					</include>
+
+					<include name="TC14_Admin_CreateNewUser_CheckRole_Fms_Incidents">
+						<parameter name="user" value="Admin" />
+					</include>
+
+					<include name="TC15_Admin_CreateNewUser_CheckRole_Imail">
+						<parameter name="user" value="Admin" />
+					</include>
+
+					<include name="TC16_Admin_CreateNewUser_CheckRole_Recruitment">
+						<parameter name="user" value="Admin" />
+					</include>
+
+					<include name="TC17_Admin_CreateNewUser_CheckRole_RecruitmentAdmin">
+						<parameter name="user" value="Admin" />
+					</include>
+
+					<include name="TC18_Admin_CreateNewUser_CheckRole_Crm">
+						<parameter name="user" value="Admin" />
+					</include>
+
+					<include name="TC19_Admin_CreateNewUser_CheckRole_CrmAdmin">
+						<parameter name="user" value="Admin" />
+					</include>
+
+					<include name="TC20_Admin_CreateNewUser_CheckRole_Finance">
+						<parameter name="user" value="Admin" />
+					</include>
+
+					<include name="TC21_Admin_Logs_VerifyPageContent">
+						<parameter name="user" value="Admin" />
+					</include>
+
+					<include name="TC22_Admin_Logs_Text_Search">
+						<parameter name="user" value="Admin" />
+					</include>
+
+					<include name="TC23_Admin_Logs_OnDatePicker">
+						<parameter name="user" value="Admin" />
+					</include>
+
+					<include name="TC24_Admin_Logs_Verify_For_From_And_TO_datePicker">
+						<parameter name="user" value="Admin" />
+					</include>
+
+					<include name="TC25_Admin_Logs_Verify_For_Logs_Participants">
+						<parameter name="user" value="Admin" />
+					</include>
+
+					<include name="TC26_Admin_Logs_Verify_For_Logs_Organisation">
+						<parameter name="user" value="Admin" />
+					</include>
+
+					<include name="TC27_Admin_Logs_Verify_For_Logs_Fms">
+						<parameter name="user" value="Admin" />
+					</include>
+
+					<include name="TC28_Admin_Logs_Verify_For_Logs_Imail">
+						<parameter name="user" value="Admin" />
+					</include>
+
+					<include name="TC29_Admin_Logs_Verify_For_Logs_Members">
+						<parameter name="user" value="Admin" />
+					</include>
+
+					<include name="TC30_Admin_Logs_Verify_For_Logs_Schedule">
+						<parameter name="user" value="Admin" />
+					</include>
+
+					<include name="TC31_Admin_Logs_Verify_For_Export_Selected_Button">
+						<parameter name="user" value="Admin" />
+					</include>
+
+					<include name="TC32_Admin_Logs_Verify_For_Pagination">
+						<parameter name="user" value="Admin" />
+					</include>
+
+					<include name="TC33_Admin_Approvals_Verify_For_Search">
+						<parameter name="user" value="Admin" />
+					</include>
+
+					<include name="TC34_Admin_Approvals_Verify_For_On_datePicker">
+						<parameter name="user" value="Admin" />
+					</include>
+
+					<include name="TC35_Admin_Approvals_Verify_For_Icon_Pin">
+						<parameter name="user" value="Admin" />
+					</include>
+
+					<include name="TC36_Admin_Approvals_Verify_For_Icon_View">
+						<parameter name="user" value="Admin" />
+					</include>
+
+					<include name="TC37_Admin_Approvals_Verify_For_Pagination">
+						<parameter name="user" value="Admin" />
+					</include>
+
+
+				</methods>
+			</class>  -->
+			<!--  Imail Module TestCases-->
+			<!--  
+			<class name="tests.imail.Imail_Module">
+				<methods>
+					 <include name="TC01_Admin_External_verifyUI">
+						<parameter name="user" value="Admin" /> 
+			         </include>  
+			  
+			         <include name="TC02_Admin_External_verify_SearchFunctionlity">
+						<parameter name="user" value="Admin" /> 
+				    </include> 
+				
+				    <include name="TC03_Admin_External_verify_SortingFilterBySelect">
+						<parameter name="user" value="Admin" /> 
+				    </include> 
+				
+				    <include name="TC04_Admin_External_verify_SortingFilterByDate">
+						<parameter name="user" value="Admin" /> 
+				   </include>
+				   
+				   <include name="TC05_Admin_External_verify_SendDraftMail">
+						<parameter name="user" value="Admin" /> 
+				   </include> 
+				   
+				   <include name="TC06_Admin_External_ComposeNewMail_Verify_ClientPortal">
+					 <parameter name="user" value="Admin" /> 
+				   </include> 
+				   
+				   <include name="TC07_Admin_External_ComposeNewMailOnClientPortal_VerifyAdmin">
+					 <parameter name="user" value="Admin" /> 
+				   </include>
+				   
+				   <include name="TC08_Admin_External_Check_MailMarkAsRead">
+					 <parameter name="user" value="Admin" /> 
+				   </include> 
+				   
+				   <include name="TC09_Admin_External_Check_MailMarkAsFavourites">
+					 <parameter name="user" value="Admin" /> 
+				   </include>  
+				   
+				   <include name="TC10_Admin_External_Check_MailSetAsItemFlag">
+					 <parameter name="user" value="Admin" /> 
+				   </include>
+				   
+				   
+				   <include name="TC11_Admin_External_Check_Mail_BlockItem">
+					 <parameter name="user" value="Admin" /> 
+				   </include>
+				   
+				  
+				   <include name="TC12_Admin_External_Check_Mail_Archive">
+					 <parameter name="user" value="Admin" /> 
+				   </include> 
+				  
+				   
+				    
+				  <include name="TC13_Admin_Internal_verifyUI">
+					 <parameter name="user" value="Admin" /> 
+				   </include> 
+				   
+				   <include name="TC14_Admin_Internal_verify_SearchFunctionlity">
+					 <parameter name="user" value="Admin" /> 
+				   </include> 
+				  
+				  
+				   <include name="TC15_Admin_Internal_verify_SortingFilterByDate">
+					 <parameter name="user" value="Admin" /> 
+				   </include> 
+				   
+				   
+				   <include name="TC16_Admin_Internal_verify_SendDraftMail">
+					 <parameter name="user" value="Admin" /> 
+				   </include> 
+				   
+				   
+				    <include name="TC17_Admin_Internal_ComposeNewMail_VerifyClient_Admin">
+					 <parameter name="user" value="Admin" /> 
+				   </include> 
+				   
+				  
+				  
+				   <include name="TC18_Admin_Internal_Check_MailMarkAsRead">
+					 <parameter name="user" value="Admin" /> 
+				   </include> 
+				   
+				   <include name="TC19_Admin_Internal_Check_MailMarkAsFavourites">
+					 <parameter name="user" value="Admin" /> 
+				   </include>  
+				   
+				   <include name="TC20_Admin_Internal_Check_MailSetAsItemFlag">
+					 <parameter name="user" value="Admin" /> 
+				   </include>
+				   
+				   
+				   <include name="TC21_Admin_Internal_Check_Mail_BlockItem">
+					 <parameter name="user" value="Admin" /> 
+				   </include>
+				   
+				  
+				   <include name="TC22_Admin_Internal_Check_Mail_Archive">
+					 <parameter name="user" value="Admin" /> 
+				   </include> 
+				   
+				  <include name="TC23_Admin_Internal_Check_GroupMessages">
+					 <parameter name="user" value="Admin" /> 
+				   </include> 
+				   
+				   <include name=" TC24_Admin_Internal_send_GroupMessages">
+					 <parameter name="user" value="Admin" /> 
+				   </include>    
+				 
+				  
+				  
+			</methods>
+			</class>   -->
+			
+			
+	
+		
+			
+		<!-- 	Plan Management TestCases -->
+			  
+			<class name="tests.planManagement.PlanManagementModule">
+				<methods>
+					 <!-- <include name="TC01_PlanManagement_Loginpage">
+						<parameter name="user" value="PM User" /> 
+			         </include>  
+			         
+			         <include name="TC02_PlanManagement_Dashboard_PageContents">
+						<parameter name="user" value="PM User" /> 
+			         </include>  
+			        
+			        Blocked TestCases
+			          <include name="TC03_PlanManagement_fetchInvoice">
+						<parameter name="user" value="PM User" /> 
+			         </include> 
+			         
+			          <include name="TC04_PlanManagement_PythonScript">
+						<parameter name="user" value="PM User" /> 
+			         </include> 
+			         
+			         <include name="TC05_PlanManagement_Chart_For_Paid_Duplicate_Automated_Manual">
+						<parameter name="user" value="PM User" /> 
+			         </include>
+			         
+			         
+			          <include name="TC06_PlanManagement_toggle_between_Quantity_and_DollarValue">
+						<parameter name="user" value="PM User" /> 
+			         </include>
+			         
+			          
+			          <include name="TC07_PlanManagement_check_for_Pending_Invoices">
+						<parameter name="user" value="PM User" /> 
+			         </include>
+			         
+			         
+			          
+			          <include name="TC08_PlanManagement_check_for_Duplicate_Invoices">
+						<parameter name="user" value="PM User" /> 
+			         </include>
+			         
+			          <include name="TC09_PlanManagement_Invoices_FollowUp">
+						<parameter name="user" value="PM User" /> 
+			         </include>
+			          
+			           
+			             
+			          <include name="TC10_PlanManagement_Summary_Of_Invoices_search">
+						<parameter name="user" value="PM User" /> 
+			         </include>
+			         
+			         
+			          <include name="TC11_PlanManagement_Participants_Name_Link">
+						<parameter name="user" value="PM User" /> 
+			         </include>
+			         
+			         
+			          <include name="TC12_PlanManagement_Status_Links_pending">
+						<parameter name="user" value="PM User" /> 
+			         </include>
+			         
+			          <include name="TC13_PlanManagement_Status_Links_Duplicate">
+						<parameter name="user" value="PM User" /> 
+			         </include>
+			         
+			          <include name="TC14_PlanManagement_Status_Links_Follow_Up">
+						<parameter name="user" value="PM User" /> 
+			         </include>
+			         
+			         <include name="TC15_PlanManagement_Status_Links_Paid">
+						<parameter name="user" value="PM User" /> 
+			         </include>
+			         
+			          
+			          
+			          <include name="TC16_PlanManagement_Pending_Invoices_Page_Contents">
+						<parameter name="user" value="PM User" /> 
+			         </include> 
+			         
+			          <include name="TC17_Invoices_RunPlanner">
+						<parameter name="user" value="PM User" /> 
+			         </include> 
+			         
+			          <include name="TC18_PlanManagement_Pending_Invoices_Searchfield">
+						<parameter name="user" value="PM User" /> 
+			         </include> 
+			         
+			         
+			           <include name="TC19_PlanManagement_Pending_Invoices_View">
+						<parameter name="user" value="PM User" /> 
+			         </include> -->  
+			         
+			          <!-- <include name="TC20_PlanManagement_Pending_Invoices_Pagination">
+						<parameter name="user" value="PM User" /> 
+			         </include>  --> 
+			       
+			       
+			        <!--   <include name="TC21_PlanManagement_Approved_Invoices_PageContents">
+						<parameter name="user" value="PM User" /> 
+			         </include>  -->
+			         
+			         <!-- <include name="TC22_PlanManagement_Approved_Invoices_search">
+						<parameter name="user" value="PM User" /> 
+			         </include>  -->
+			         
+			         <!--  <include name="TC23_PlanManagement_Approved_Invoices_Button_ExportCSV">
+					  <parameter name="user" value="PM User" /> 
+			         </include> --> 
+			       
+			       
+			        <include name="TC24_PlanManagement_Approved_Invoices_Pagination">
+						<parameter name="user" value="PM User" /> 
+			         </include> 
+			              
+			      </methods>
+			</class>
+			
+		</classes>
+	</test>
+</suite>
